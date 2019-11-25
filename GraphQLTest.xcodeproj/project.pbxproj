@@ -1,0 +1,560 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E2A94E32389DDF000D2940B /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A94E22389DDF000D2940B /* schema.json */; };
+		0E2A94E62389DEA800D2940B /* ContinentList.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A94E52389DEA800D2940B /* ContinentList.graphql */; };
+		0E2A94E82389DF7200D2940B /* QueryRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A94E72389DF7200D2940B /* QueryRenderer.swift */; };
+		0E2A94EB2389E89600D2940B /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 0E2A94EA2389E89600D2940B /* Apollo */; };
+		0E2A94ED2389E89600D2940B /* ApolloSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 0E2A94EC2389E89600D2940B /* ApolloSQLite */; };
+		0E2A94EF2389E89600D2940B /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 0E2A94EE2389E89600D2940B /* ApolloWebSocket */; };
+		0E2A94F12389EA4200D2940B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A94F02389EA4200D2940B /* API.swift */; };
+		0E2A94F32389F46A00D2940B /* CountryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A94F22389F46A00D2940B /* CountryList.swift */; };
+		0E2A94F72389F49700D2940B /* ContinentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A94F62389F49700D2940B /* ContinentCell.swift */; };
+		0E2A94F92389F51A00D2940B /* ContinentListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A94F82389F51A00D2940B /* ContinentListWrapper.swift */; };
+		0E2A95012389F6C500D2940B /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A95002389F6C500D2940B /* CountryCell.swift */; };
+		0E2A95032389F6F100D2940B /* CountryByContinentList.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A95022389F6F100D2940B /* CountryByContinentList.graphql */; };
+		0E2A95072389F91400D2940B /* CountryListForContinentWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A95062389F91400D2940B /* CountryListForContinentWrapper.swift */; };
+		0E2A95092389FAA800D2940B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A95082389FAA800D2940B /* ContentView.swift */; };
+		0E2A950B238A050000D2940B /* FullCountryList.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A950A238A050000D2940B /* FullCountryList.graphql */; };
+		0E2A950D238A052E00D2940B /* BasicContinent.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A950C238A052E00D2940B /* BasicContinent.graphql */; };
+		0E2A950F238A057200D2940B /* BasicCountry.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A950E238A057200D2940B /* BasicCountry.graphql */; };
+		0E2A9511238A078B00D2940B /* FullCountryListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A9510238A078B00D2940B /* FullCountryListWrapper.swift */; };
+		0E2A9514238A093E00D2940B /* CountryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A9513238A093E00D2940B /* CountryDetailView.swift */; };
+		0E2A9516238A095E00D2940B /* CountryDetails.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A9515238A095E00D2940B /* CountryDetails.graphql */; };
+		0E2A9518238A09E100D2940B /* BasicLanguage.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A9517238A09E100D2940B /* BasicLanguage.graphql */; };
+		0E2A951A238A0A2100D2940B /* CountryDetailsForCode.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A9519238A0A2100D2940B /* CountryDetailsForCode.graphql */; };
+		0E2A951D238A0A6200D2940B /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A951C238A0A6200D2940B /* LanguageCell.swift */; };
+		0E2A951F238A0AA000D2940B /* LanguageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A951E238A0AA000D2940B /* LanguageList.swift */; };
+		0E2A9521238A0B0D00D2940B /* FullLanguageList.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A9520238A0B0D00D2940B /* FullLanguageList.graphql */; };
+		0E2A9523238A0B4200D2940B /* LanguageListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A9522238A0B4200D2940B /* LanguageListWrapper.swift */; };
+		0E2A9525238A0C2D00D2940B /* CountryDetailsForBasicWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A9524238A0C2D00D2940B /* CountryDetailsForBasicWrapper.swift */; };
+		0E3588D8238B0CB800473FB3 /* CountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3588D7238B0CB800473FB3 /* CountryInfo.swift */; };
+		0EAA8462237234B800B00277 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAA8461237234B800B00277 /* AppDelegate.swift */; };
+		0EAA8464237234B800B00277 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAA8463237234B800B00277 /* SceneDelegate.swift */; };
+		0EAA8466237234B800B00277 /* ContinentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAA8465237234B800B00277 /* ContinentList.swift */; };
+		0EAA8468237234BB00B00277 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA8467237234BB00B00277 /* Assets.xcassets */; };
+		0EAA846B237234BB00B00277 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA846A237234BB00B00277 /* Preview Assets.xcassets */; };
+		0EAA846E237234BB00B00277 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA846C237234BB00B00277 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0E2A94E22389DDF000D2940B /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		0E2A94E52389DEA800D2940B /* ContinentList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ContinentList.graphql; sourceTree = "<group>"; };
+		0E2A94E72389DF7200D2940B /* QueryRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryRenderer.swift; sourceTree = "<group>"; };
+		0E2A94F02389EA4200D2940B /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		0E2A94F22389F46A00D2940B /* CountryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryList.swift; sourceTree = "<group>"; };
+		0E2A94F62389F49700D2940B /* ContinentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentCell.swift; sourceTree = "<group>"; };
+		0E2A94F82389F51A00D2940B /* ContinentListWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentListWrapper.swift; sourceTree = "<group>"; };
+		0E2A95002389F6C500D2940B /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
+		0E2A95022389F6F100D2940B /* CountryByContinentList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CountryByContinentList.graphql; sourceTree = "<group>"; };
+		0E2A95062389F91400D2940B /* CountryListForContinentWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListForContinentWrapper.swift; sourceTree = "<group>"; };
+		0E2A95082389FAA800D2940B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0E2A950A238A050000D2940B /* FullCountryList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = FullCountryList.graphql; sourceTree = "<group>"; };
+		0E2A950C238A052E00D2940B /* BasicContinent.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = BasicContinent.graphql; sourceTree = "<group>"; };
+		0E2A950E238A057200D2940B /* BasicCountry.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = BasicCountry.graphql; sourceTree = "<group>"; };
+		0E2A9510238A078B00D2940B /* FullCountryListWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCountryListWrapper.swift; sourceTree = "<group>"; };
+		0E2A9513238A093E00D2940B /* CountryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailView.swift; sourceTree = "<group>"; };
+		0E2A9515238A095E00D2940B /* CountryDetails.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CountryDetails.graphql; sourceTree = "<group>"; };
+		0E2A9517238A09E100D2940B /* BasicLanguage.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = BasicLanguage.graphql; sourceTree = "<group>"; };
+		0E2A9519238A0A2100D2940B /* CountryDetailsForCode.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CountryDetailsForCode.graphql; sourceTree = "<group>"; };
+		0E2A951C238A0A6200D2940B /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
+		0E2A951E238A0AA000D2940B /* LanguageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageList.swift; sourceTree = "<group>"; };
+		0E2A9520238A0B0D00D2940B /* FullLanguageList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = FullLanguageList.graphql; sourceTree = "<group>"; };
+		0E2A9522238A0B4200D2940B /* LanguageListWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageListWrapper.swift; sourceTree = "<group>"; };
+		0E2A9524238A0C2D00D2940B /* CountryDetailsForBasicWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsForBasicWrapper.swift; sourceTree = "<group>"; };
+		0E3588D7238B0CB800473FB3 /* CountryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfo.swift; sourceTree = "<group>"; };
+		0EAA845E237234B800B00277 /* GraphQLTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphQLTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EAA8461237234B800B00277 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0EAA8463237234B800B00277 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0EAA8465237234B800B00277 /* ContinentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentList.swift; sourceTree = "<group>"; };
+		0EAA8467237234BB00B00277 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0EAA846A237234BB00B00277 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0EAA846D237234BB00B00277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0EAA846F237234BB00B00277 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0EAA845B237234B800B00277 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E2A94EF2389E89600D2940B /* ApolloWebSocket in Frameworks */,
+				0E2A94EB2389E89600D2940B /* Apollo in Frameworks */,
+				0E2A94ED2389E89600D2940B /* ApolloSQLite in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E2A94F42389F47E00D2940B /* Country List */ = {
+			isa = PBXGroup;
+			children = (
+				0E2A95022389F6F100D2940B /* CountryByContinentList.graphql */,
+				0E2A950A238A050000D2940B /* FullCountryList.graphql */,
+				0E2A950E238A057200D2940B /* BasicCountry.graphql */,
+				0E2A94F22389F46A00D2940B /* CountryList.swift */,
+				0E2A95002389F6C500D2940B /* CountryCell.swift */,
+				0E2A95062389F91400D2940B /* CountryListForContinentWrapper.swift */,
+				0E2A9510238A078B00D2940B /* FullCountryListWrapper.swift */,
+			);
+			path = "Country List";
+			sourceTree = "<group>";
+		};
+		0E2A94F52389F48900D2940B /* Continent List */ = {
+			isa = PBXGroup;
+			children = (
+				0E2A950C238A052E00D2940B /* BasicContinent.graphql */,
+				0E2A94E52389DEA800D2940B /* ContinentList.graphql */,
+				0EAA8465237234B800B00277 /* ContinentList.swift */,
+				0E2A94F62389F49700D2940B /* ContinentCell.swift */,
+				0E2A94F82389F51A00D2940B /* ContinentListWrapper.swift */,
+			);
+			path = "Continent List";
+			sourceTree = "<group>";
+		};
+		0E2A9512238A091800D2940B /* Country Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0E2A9519238A0A2100D2940B /* CountryDetailsForCode.graphql */,
+				0E2A9515238A095E00D2940B /* CountryDetails.graphql */,
+				0E2A9513238A093E00D2940B /* CountryDetailView.swift */,
+				0E3588D7238B0CB800473FB3 /* CountryInfo.swift */,
+				0E2A9524238A0C2D00D2940B /* CountryDetailsForBasicWrapper.swift */,
+			);
+			path = "Country Detail";
+			sourceTree = "<group>";
+		};
+		0E2A951B238A0A5300D2940B /* LanguageList */ = {
+			isa = PBXGroup;
+			children = (
+				0E2A9520238A0B0D00D2940B /* FullLanguageList.graphql */,
+				0E2A9517238A09E100D2940B /* BasicLanguage.graphql */,
+				0E2A951C238A0A6200D2940B /* LanguageCell.swift */,
+				0E2A951E238A0AA000D2940B /* LanguageList.swift */,
+				0E2A9522238A0B4200D2940B /* LanguageListWrapper.swift */,
+			);
+			path = LanguageList;
+			sourceTree = "<group>";
+		};
+		0E7E6F07238BBA0C0084B930 /* GraphQL Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				0E2A94E72389DF7200D2940B /* QueryRenderer.swift */,
+				0E2A94F02389EA4200D2940B /* API.swift */,
+			);
+			path = "GraphQL Stuff";
+			sourceTree = "<group>";
+		};
+		0EAA8455237234B800B00277 = {
+			isa = PBXGroup;
+			children = (
+				0EAA8460237234B800B00277 /* GraphQLTest */,
+				0EAA845F237234B800B00277 /* Products */,
+				CF956BAEE41B2D968460AAE9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0EAA845F237234B800B00277 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0EAA845E237234B800B00277 /* GraphQLTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0EAA8460237234B800B00277 /* GraphQLTest */ = {
+			isa = PBXGroup;
+			children = (
+				0E2A94E22389DDF000D2940B /* schema.json */,
+				0EAA8461237234B800B00277 /* AppDelegate.swift */,
+				0EAA8463237234B800B00277 /* SceneDelegate.swift */,
+				0E2A95082389FAA800D2940B /* ContentView.swift */,
+				0E7E6F07238BBA0C0084B930 /* GraphQL Stuff */,
+				0E2A951B238A0A5300D2940B /* LanguageList */,
+				0E2A9512238A091800D2940B /* Country Detail */,
+				0E2A94F42389F47E00D2940B /* Country List */,
+				0E2A94F52389F48900D2940B /* Continent List */,
+				0EAA8467237234BB00B00277 /* Assets.xcassets */,
+				0EAA846C237234BB00B00277 /* LaunchScreen.storyboard */,
+				0EAA846F237234BB00B00277 /* Info.plist */,
+				0EAA8469237234BB00B00277 /* Preview Content */,
+			);
+			path = GraphQLTest;
+			sourceTree = "<group>";
+		};
+		0EAA8469237234BB00B00277 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0EAA846A237234BB00B00277 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CF956BAEE41B2D968460AAE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0EAA845D237234B800B00277 /* GraphQLTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0EAA8472237234BB00B00277 /* Build configuration list for PBXNativeTarget "GraphQLTest" */;
+			buildPhases = (
+				0E2A94E42389DE2A00D2940B /*  Generate Apollo GraphQL API */,
+				0EAA845A237234B800B00277 /* Sources */,
+				0EAA845B237234B800B00277 /* Frameworks */,
+				0EAA845C237234B800B00277 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GraphQLTest;
+			packageProductDependencies = (
+				0E2A94EA2389E89600D2940B /* Apollo */,
+				0E2A94EC2389E89600D2940B /* ApolloSQLite */,
+				0E2A94EE2389E89600D2940B /* ApolloWebSocket */,
+			);
+			productName = GraphQLTest;
+			productReference = 0EAA845E237234B800B00277 /* GraphQLTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0EAA8456237234B800B00277 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = "Mathias Quintero";
+				TargetAttributes = {
+					0EAA845D237234B800B00277 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+				};
+			};
+			buildConfigurationList = 0EAA8459237234B800B00277 /* Build configuration list for PBXProject "GraphQLTest" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0EAA8455237234B800B00277;
+			packageReferences = (
+				0E2A94E92389E89600D2940B /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
+			productRefGroup = 0EAA845F237234B800B00277 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0EAA845D237234B800B00277 /* GraphQLTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0EAA845C237234B800B00277 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E2A950F238A057200D2940B /* BasicCountry.graphql in Resources */,
+				0E2A9521238A0B0D00D2940B /* FullLanguageList.graphql in Resources */,
+				0E2A94E32389DDF000D2940B /* schema.json in Resources */,
+				0EAA846E237234BB00B00277 /* LaunchScreen.storyboard in Resources */,
+				0EAA846B237234BB00B00277 /* Preview Assets.xcassets in Resources */,
+				0E2A950D238A052E00D2940B /* BasicContinent.graphql in Resources */,
+				0E2A951A238A0A2100D2940B /* CountryDetailsForCode.graphql in Resources */,
+				0E2A9516238A095E00D2940B /* CountryDetails.graphql in Resources */,
+				0EAA8468237234BB00B00277 /* Assets.xcassets in Resources */,
+				0E2A94E62389DEA800D2940B /* ContinentList.graphql in Resources */,
+				0E2A9518238A09E100D2940B /* BasicLanguage.graphql in Resources */,
+				0E2A950B238A050000D2940B /* FullCountryList.graphql in Resources */,
+				0E2A95032389F6F100D2940B /* CountryByContinentList.graphql in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E2A94E42389DE2A00D2940B /*  Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = " Generate Apollo GraphQL API";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Go to the build root and search up the chain to find the Derived Data Path where the source packages are checked out.\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\n\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Grab a reference to the directory where scripts are checked out\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\n\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0EAA845A237234B800B00277 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0EAA8462237234B800B00277 /* AppDelegate.swift in Sources */,
+				0E2A94F72389F49700D2940B /* ContinentCell.swift in Sources */,
+				0E2A9525238A0C2D00D2940B /* CountryDetailsForBasicWrapper.swift in Sources */,
+				0E2A95012389F6C500D2940B /* CountryCell.swift in Sources */,
+				0EAA8464237234B800B00277 /* SceneDelegate.swift in Sources */,
+				0E2A9514238A093E00D2940B /* CountryDetailView.swift in Sources */,
+				0E2A951D238A0A6200D2940B /* LanguageCell.swift in Sources */,
+				0E2A94F32389F46A00D2940B /* CountryList.swift in Sources */,
+				0E2A951F238A0AA000D2940B /* LanguageList.swift in Sources */,
+				0E2A94F92389F51A00D2940B /* ContinentListWrapper.swift in Sources */,
+				0EAA8466237234B800B00277 /* ContinentList.swift in Sources */,
+				0E2A9511238A078B00D2940B /* FullCountryListWrapper.swift in Sources */,
+				0E2A95072389F91400D2940B /* CountryListForContinentWrapper.swift in Sources */,
+				0E2A95092389FAA800D2940B /* ContentView.swift in Sources */,
+				0E3588D8238B0CB800473FB3 /* CountryInfo.swift in Sources */,
+				0E2A94E82389DF7200D2940B /* QueryRenderer.swift in Sources */,
+				0E2A94F12389EA4200D2940B /* API.swift in Sources */,
+				0E2A9523238A0B4200D2940B /* LanguageListWrapper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0EAA846C237234BB00B00277 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0EAA846D237234BB00B00277 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0EAA8470237234BB00B00277 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0EAA8471237234BB00B00277 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0EAA8473237234BB00B00277 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"GraphQLTest/Preview Content\"";
+				DEVELOPMENT_TEAM = KJPP698PR3;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = GraphQLTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.quintero.GraphQLTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0EAA8474237234BB00B00277 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"GraphQLTest/Preview Content\"";
+				DEVELOPMENT_TEAM = KJPP698PR3;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = GraphQLTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.quintero.GraphQLTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0EAA8459237234B800B00277 /* Build configuration list for PBXProject "GraphQLTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EAA8470237234BB00B00277 /* Debug */,
+				0EAA8471237234BB00B00277 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0EAA8472237234BB00B00277 /* Build configuration list for PBXNativeTarget "GraphQLTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EAA8473237234BB00B00277 /* Debug */,
+				0EAA8474237234BB00B00277 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0E2A94E92389E89600D2940B /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0E2A94EA2389E89600D2940B /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E2A94E92389E89600D2940B /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+		0E2A94EC2389E89600D2940B /* ApolloSQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E2A94E92389E89600D2940B /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloSQLite;
+		};
+		0E2A94EE2389E89600D2940B /* ApolloWebSocket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E2A94E92389E89600D2940B /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloWebSocket;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 0EAA8456237234B800B00277 /* Project object */;
+}

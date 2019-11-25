@@ -1,0 +1,4 @@
+fragment BasicLanguage on Language {
+    code
+    name
+}

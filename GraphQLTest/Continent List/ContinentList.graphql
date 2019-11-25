@@ -1,0 +1,5 @@
+query ContinentList {
+    continents {
+        ...BasicContinent
+    }
+}

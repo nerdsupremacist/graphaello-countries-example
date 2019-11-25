@@ -1,0 +1,5 @@
+fragment BasicCountry on Country {
+    code
+    name
+    emoji
+}

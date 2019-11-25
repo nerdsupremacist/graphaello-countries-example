@@ -1,0 +1,7 @@
+query CountryByContinentList($code: String) {
+    continent(code: $code) {
+        countries {
+            ...BasicCountry
+        }
+    }
+}

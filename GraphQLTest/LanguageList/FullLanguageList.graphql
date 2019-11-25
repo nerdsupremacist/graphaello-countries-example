@@ -1,0 +1,5 @@
+query FullLanguageList {
+    languages {
+        ...BasicLanguage
+    }
+}
