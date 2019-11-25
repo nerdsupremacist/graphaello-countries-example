@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct ContinentList: View {
-    let continents: [BasicContinent]
+    let continents: [ContinentCell.Continent]
     
     var body: some View {
-        List(continents, id: \.code) { continent in
+        List(continents, id: \.name) { continent in
             ContinentCell(continent: continent)
         }.listStyle(GroupedListStyle())
     }

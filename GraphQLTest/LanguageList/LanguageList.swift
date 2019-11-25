@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct LanguageList: View {
-    let languages: [BasicLanguage]
+    let languages: [LanguageCell.Language]
     
     var body: some View {
         List(languages, id: \.code) { language in

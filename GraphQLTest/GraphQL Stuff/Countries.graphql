@@ -1,0 +1,71 @@
+fragment CountryDetailsForBasicWrapper_Country on Country {
+    code
+}
+
+fragment CountryCell_Country on Country {
+    ...CountryDetailsForBasicWrapper_Country
+    name
+    emoji
+}
+
+fragment CountryDetailView_Country on Country {
+    code
+    name
+    native
+    phone
+    currency
+    emoji
+    continent {
+        ...ContinentCell_Continent
+    }
+    languages {
+        ...LanguageCell_Language
+    }
+}
+
+fragment CountryListForContinentWrapper_Continent on Continent {
+    code
+}
+
+fragment ContinentCell_Continent on Continent {
+    ...CountryListForContinentWrapper_Continent
+    name
+}
+
+fragment LanguageCell_Language on Language {
+    code
+    name
+}
+
+query FullCountryList {
+    countries {
+        ...CountryCell_Country
+    }
+}
+
+query ContinentList {
+    continents {
+        ...ContinentCell_Continent
+    }
+}
+
+query FullLanguageList {
+    languages {
+        ...LanguageCell_Language
+    }
+}
+
+query CountryByContinentList($code: String) {
+    continent(code: $code) {
+        countries {
+            ...CountryCell_Country
+        }
+    }
+}
+
+query CountryDetailsForCode($code: String) {
+    country(code: $code) {
+        ...CountryDetailView_Country
+    }
+}
+

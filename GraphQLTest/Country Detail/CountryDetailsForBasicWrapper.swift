@@ -9,14 +9,13 @@
 import SwiftUI
 
 struct CountryDetailsForBasicWrapper: View {
-    let country: BasicCountry
-    
+    @Countries.Country var code: String?
+
     var body: some View {
-        country.code.map {
-            QueryRenderer(query: CountryDetailsForCodeQuery(code: $0)) { data in
-                data.country.map { CountryDetailView(country: $0.fragments.countryDetails) }
+        code.map {
+            QueryRenderer(client: client, query: CountryDetailsForCodeQuery(code: $0)) { data in
+                data.country.map { CountryDetailView(country: $0.fragments.countryDetailViewCountry) }
             }
         }
     }
 }
-

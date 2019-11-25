@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct CountryList: View {
-    let countries: [BasicCountry]
+    let countries: [CountryCell.Country]
     
     var body: some View {
-        List(countries, id: \.code) { country in
+        List(countries, id: \.name) { country in
             CountryCell(country: country)
         }.listStyle(GroupedListStyle())
     }

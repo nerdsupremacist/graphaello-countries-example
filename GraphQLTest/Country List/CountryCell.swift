@@ -9,13 +9,15 @@
 import SwiftUI
 
 struct CountryCell: View {
-    let country: BasicCountry
+    @Countries.Country var detailsInfo: CountryDetailsForBasicWrapper.Country
+    @Countries.Country var emoji: String?
+    @Countries.Country var name: String?
     
     var body: some View {
-        NavigationLink(destination: CountryDetailsForBasicWrapper(country: country)) {
+        NavigationLink(destination: CountryDetailsForBasicWrapper(country: detailsInfo)) {
             HStack {
-                country.emoji.map { Text($0) }
-                country.name.map { Text($0) }
+                emoji.map { Text($0) }
+                name.map { Text($0) }
             }
         }
     }

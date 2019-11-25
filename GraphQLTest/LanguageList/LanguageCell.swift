@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct LanguageCell: View {
-    let language: BasicLanguage
+    @Countries.Language var name: String?
     
     var body: some View {
-        language.name.map { Text($0) }
+        name.map { Text($0) }
     }
 }

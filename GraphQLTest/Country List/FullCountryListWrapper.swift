@@ -8,10 +8,10 @@
 
 import SwiftUI
 
-struct FullCountryListWrapper: View {
-    var body: some View {
-        QueryRenderer(query: FullCountryListQuery()) { data in
-            CountryList(countries: data.countries?.compactMap { $0?.fragments.basicCountry } ?? [])
-        }.navigationBarTitle("Countries")
-    }
-}
+//struct FullCountryListWrapper: View {
+//    let api: Countries
+//    
+//    var body: some View {
+//        api.countries { CountryList(countries: $0) }
+//    }
+//}

@@ -1,5 +1,0 @@
-query CountryDetailsForCode($code: String) {
-    country(code: $code) {
-        ...CountryDetails
-    }
-}

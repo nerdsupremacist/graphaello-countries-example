@@ -9,10 +9,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    let api: Countries
+    
     var body: some View {
         TabView {
             NavigationView {
-                FullCountryListWrapper()
+                api.countries { CountryList(countries: $0) }
             }.tabItem {
                 Image(systemName: "flag.fill")
                 Text("Countries")

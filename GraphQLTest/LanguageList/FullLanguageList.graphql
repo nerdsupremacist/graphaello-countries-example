@@ -1,5 +1,0 @@
-query FullLanguageList {
-    languages {
-        ...BasicLanguage
-    }
-}

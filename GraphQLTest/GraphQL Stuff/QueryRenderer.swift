@@ -10,11 +10,13 @@ import Foundation
 import SwiftUI
 import Apollo
 
-private let client = ApolloClient(url: URL(string: "https://countries.trevorblades.com/")!)
+let client = ApolloClient(url: URL(string: "https://countries.trevorblades.com/")!)
+let countries = Countries(client: client)
 
 struct QueryRenderer<Query: GraphQLQuery, Content: View>: View {
     typealias ContentFactory = (Query.Data) -> Content
     
+    let client: ApolloClient
     let query: Query
     let factory: ContentFactory
     
@@ -29,7 +31,7 @@ struct QueryRenderer<Query: GraphQLQuery, Content: View>: View {
             value.map(factory)
             isLoading ? Text("Loading") : nil
         }.onAppear {
-            self.cancellable = client.fetch(query: self.query) { result in
+            self.cancellable = self.client.fetch(query: self.query) { result in
                 defer {
                     self.cancellable = nil
                     self.isLoading = false

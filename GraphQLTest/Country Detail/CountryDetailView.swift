@@ -9,34 +9,41 @@
 import SwiftUI
 
 struct CountryDetailView: View {
-    let country: CountryDetails
+    @Countries.Country private(set) var name: String?
+    @Countries.Country private(set) var native: String?
+    @Countries.Country private(set) var code: String?
+    @Countries.Country private(set) var emoji: String?
+    @Countries.Country private(set) var phone: String?
+    @Countries.Country private(set) var currency: String?
+    @Countries.Country private(set) var continent: ContinentCell.Continent?
+    @Countries.Country private(set) var languages: [LanguageCell.Language]?
     
     var body: some View {
         List {
             Section(header: Text("Basic Info")) {
-                country.name.map { CountryInfo(title: "Name", value: $0) }
-                country.native.map { $0 != country.name ? CountryInfo(title: "Native Name", value: $0) : nil }
-                country.code.map { CountryInfo(title: "ISO Code", value: $0) }
-                country.emoji.map { CountryInfo(title: "Emoji", value: $0) }
-                country.phone.map { CountryInfo(title: "Calling Code", value: "+\($0)") }
-                country.currency.map { CountryInfo(title: "Currency", value: $0) }
+                name.map { CountryInfo(title: "Name", value: $0) }
+                native.map { $0 != name ? CountryInfo(title: "Native Name", value: $0) : nil }
+                code.map { CountryInfo(title: "ISO Code", value: $0) }
+                emoji.map { CountryInfo(title: "Emoji", value: $0) }
+                phone.map { CountryInfo(title: "Calling Code", value: "+\($0)") }
+                currency.map { CountryInfo(title: "Currency", value: $0) }
             }
             
-            country.continent.map { continent in
+            continent.map { continent in
                 Section(header: Text("Continent")) {
-                    ContinentCell(continent: continent.fragments.basicContinent)
+                    ContinentCell(continent: continent)
                 }
             }
             
-            country.languages.flatMap { languages in
+            languages.flatMap { languages in
                 !languages.isEmpty ? Section(header: Text("Languages")) {
-                    ForEach(languages.compactMap { $0?.fragments.basicLanguage }, id: \BasicLanguage.code) { language in
+                    ForEach(languages, id: \.code) { language in
                         LanguageCell(language: language)
                     }
                 } : nil
             }
             
-            country.name
+            name
                 .flatMap { $0.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) }
                 .flatMap { URL(string: "https://en.wikipedia.org/wiki/\($0)") }
                 .map { url in
@@ -50,6 +57,6 @@ struct CountryDetailView: View {
                         }
                     }
             }
-        }.listStyle(GroupedListStyle()).navigationBarTitle(Text(country.name ?? "Country"), displayMode: .inline)
+        }.listStyle(GroupedListStyle()).navigationBarTitle(Text(name ?? "Country"), displayMode: .inline)
     }
 }

@@ -1,5 +1,0 @@
-query FullCountryList {
-    countries {
-        ...BasicCountry
-    }
-}

@@ -10,8 +10,8 @@ import SwiftUI
 
 struct LanguageListWrapper: View {
     var body: some View {
-        QueryRenderer(query: FullLanguageListQuery()) { data in
-            LanguageList(languages: data.languages?.compactMap { $0?.fragments.basicLanguage } ?? [])
+        QueryRenderer(client: client, query: FullLanguageListQuery()) { data in
+            LanguageList(languages: data.languages?.compactMap { $0?.fragments.languageCellLanguage } ?? [])
         }.navigationBarTitle("Languages")
     }
 }

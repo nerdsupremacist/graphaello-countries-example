@@ -1,4 +1,0 @@
-fragment BasicContinent on Continent {
-    code
-    name
-}

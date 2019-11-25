@@ -9,12 +9,13 @@
 import SwiftUI
 
 struct ContinentCell: View {
-    let continent: BasicContinent
+    @Countries.Continent var countryList: CountryListForContinentWrapper.Continent
+    @Countries.Continent var name: String?
     
     var body: some View {
-        NavigationLink(destination: CountryListForContinentWrapper(continent: continent)) {
+        NavigationLink(destination: CountryListForContinentWrapper(continent: countryList)) {
             HStack {
-                continent.name.map { Text($0) }
+                name.map { Text($0) }
             }
         }
     }

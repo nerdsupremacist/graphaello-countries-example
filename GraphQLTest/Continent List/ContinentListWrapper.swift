@@ -9,11 +9,11 @@
 import SwiftUI
 
 struct ContinentListWrapper: View {
-    
+
     var body: some View {
-        QueryRenderer(query: ContinentListQuery()) { data in
-            ContinentList(continents: data.continents?.compactMap { $0?.fragments.basicContinent } ?? [])
+        QueryRenderer(client: client, query: ContinentListQuery()) { data in
+            ContinentList(continents: data.continents?.compactMap { $0?.fragments.continentCellContinent } ?? [])
         }.navigationBarTitle("Continents")
     }
-    
+
 }
