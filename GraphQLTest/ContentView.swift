@@ -28,7 +28,7 @@ struct ContentView: View {
             }
             
             NavigationView {
-                LanguageListWrapper()
+                api.fullLanguageList()
             }.tabItem {
                 Image(systemName: "speaker.3.fill")
                 Text("Languages")

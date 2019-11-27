@@ -27,7 +27,7 @@
 		0E2A951D238A0A6200D2940B /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A951C238A0A6200D2940B /* LanguageCell.swift */; };
 		0E2A951F238A0AA000D2940B /* LanguageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A951E238A0AA000D2940B /* LanguageList.swift */; };
 		0E2A9521238A0B0D00D2940B /* Countries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A9520238A0B0D00D2940B /* Countries.graphql */; };
-		0E2A9523238A0B4200D2940B /* LanguageListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A9522238A0B4200D2940B /* LanguageListWrapper.swift */; };
+		0E2A9523238A0B4200D2940B /* FullLanguageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A9522238A0B4200D2940B /* FullLanguageList.swift */; };
 		0E2A9525238A0C2D00D2940B /* CountryDetailsForBasicWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A9524238A0C2D00D2940B /* CountryDetailsForBasicWrapper.swift */; };
 		0E3588D8238B0CB800473FB3 /* CountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3588D7238B0CB800473FB3 /* CountryInfo.swift */; };
 		0E68B1E1238EF3D100474D36 /* GraphQLArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68B1E0238EF3D100474D36 /* GraphQLArgument.swift */; };
@@ -57,7 +57,7 @@
 		0E2A951C238A0A6200D2940B /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 		0E2A951E238A0AA000D2940B /* LanguageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageList.swift; sourceTree = "<group>"; };
 		0E2A9520238A0B0D00D2940B /* Countries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Countries.graphql; sourceTree = "<group>"; };
-		0E2A9522238A0B4200D2940B /* LanguageListWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageListWrapper.swift; sourceTree = "<group>"; };
+		0E2A9522238A0B4200D2940B /* FullLanguageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullLanguageList.swift; sourceTree = "<group>"; };
 		0E2A9524238A0C2D00D2940B /* CountryDetailsForBasicWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsForBasicWrapper.swift; sourceTree = "<group>"; };
 		0E3588D7238B0CB800473FB3 /* CountryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfo.swift; sourceTree = "<group>"; };
 		0E68B1E0238EF3D100474D36 /* GraphQLArgument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLArgument.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 			children = (
 				0E2A951C238A0A6200D2940B /* LanguageCell.swift */,
 				0E2A951E238A0AA000D2940B /* LanguageList.swift */,
-				0E2A9522238A0B4200D2940B /* LanguageListWrapper.swift */,
+				0E2A9522238A0B4200D2940B /* FullLanguageList.swift */,
 			);
 			path = LanguageList;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 				0EAA8464237234B800B00277 /* SceneDelegate.swift in Sources */,
 				0E2A951F238A0AA000D2940B /* LanguageList.swift in Sources */,
 				0E2A9511238A078B00D2940B /* FullCountryList.swift in Sources */,
-				0E2A9523238A0B4200D2940B /* LanguageListWrapper.swift in Sources */,
+				0E2A9523238A0B4200D2940B /* FullLanguageList.swift in Sources */,
 				0E2A94F92389F51A00D2940B /* FullContinentList.swift in Sources */,
 				0EAA8466237234B800B00277 /* ContinentList.swift in Sources */,
 				0E2A95092389FAA800D2940B /* ContentView.swift in Sources */,

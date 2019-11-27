@@ -99,3 +99,19 @@ extension Countries {
     }
     
 }
+
+extension FullLanguageList {
+    typealias Data = FullLanguageListQuery.Data
+    
+    init(data: Data) {
+        self.init(languages: data.languages?.compactMap { $0?.fragments.languageCellLanguage })
+    }
+}
+
+extension Countries {
+    
+    func fullLanguageList() -> some View {
+        return QueryRenderer(query: FullLanguageListQuery(), factory: FullLanguageList.init)
+    }
+    
+}
