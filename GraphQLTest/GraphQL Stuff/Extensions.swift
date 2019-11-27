@@ -83,3 +83,19 @@ extension Countries {
     }
     
 }
+
+extension FullContinentList {
+    typealias Data = FullContinentListQuery.Data
+    
+    init(data: Data) {
+        self.init(continents: data.continents?.compactMap { $0?.fragments.continentCellContinent })
+    }
+}
+
+extension Countries {
+    
+    func fullContinentList() -> some View {
+        return QueryRenderer(query: FullContinentListQuery(), factory: FullContinentList.init)
+    }
+    
+}

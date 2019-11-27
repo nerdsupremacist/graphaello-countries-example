@@ -104,11 +104,11 @@ public final class FullCountryListQuery: GraphQLQuery {
   }
 }
 
-public final class ContinentListQuery: GraphQLQuery {
+public final class FullContinentListQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition =
     """
-    query ContinentList {
+    query FullContinentList {
       continents {
         __typename
         ...ContinentCell_Continent
@@ -116,7 +116,7 @@ public final class ContinentListQuery: GraphQLQuery {
     }
     """
 
-  public let operationName = "ContinentList"
+  public let operationName = "FullContinentList"
 
   public var queryDocument: String { return operationDefinition.appending(ContinentCellContinent.fragmentDefinition).appending(CountryListForContinentWrapperContinent.fragmentDefinition) }
 

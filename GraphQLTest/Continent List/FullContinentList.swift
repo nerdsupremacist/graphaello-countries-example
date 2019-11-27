@@ -9,11 +9,9 @@
 import SwiftUI
 
 struct FullContinentList: View {
+    @Countries.Query.Continents var continents: [ContinentCell.Continent]?
 
     var body: some View {
-        QueryRenderer(query: ContinentListQuery()) { data in
-            ContinentList(continents: data.continents?.compactMap { $0?.fragments.continentCellContinent } ?? [])
-        }.navigationBarTitle("Continents")
+        continents.map(ContinentList.init).navigationBarTitle("Continents")
     }
-
 }

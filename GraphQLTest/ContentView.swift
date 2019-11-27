@@ -21,7 +21,7 @@ struct ContentView: View {
             }
             
             NavigationView {
-                FullContinentList()
+                api.fullContinentList()
             }.tabItem {
                 Image(systemName: "map.fill")
                 Text("Continents")
