@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CountryList: View {
     let countries: [CountryCell.Country]
-    
+
     var body: some View {
         List(countries, id: \.name) { country in
             CountryCell(country: country)

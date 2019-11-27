@@ -9,11 +9,11 @@
 import SwiftUI
 
 struct CountryDetailsForBasicWrapper: View {
-    @Countries.Country var code: String?
+    @Countries.Country.Code var code: String?
 
     var body: some View {
         code.map {
-            QueryRenderer(client: client, query: CountryDetailsForCodeQuery(code: $0)) { data in
+            QueryRenderer(query: CountryDetailsForCodeQuery(code: $0)) { data in
                 data.country.map { CountryDetailView(country: $0.fragments.countryDetailViewCountry) }
             }
         }

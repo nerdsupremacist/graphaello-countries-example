@@ -26,7 +26,7 @@ extension CountryDetailView {
 
 extension CountryDetailsForBasicWrapper {
     typealias Country = CountryDetailsForBasicWrapperCountry
-    
+
     init(country: Country) {
         self.init(code: country.code)
     }
@@ -34,7 +34,7 @@ extension CountryDetailsForBasicWrapper {
 
 extension CountryCell {
     typealias Country = CountryCellCountry
-    
+
     init(country: Country) {
         self.init(detailsInfo: country.fragments.countryDetailsForBasicWrapperCountry,
                   emoji: country.emoji,
@@ -44,7 +44,7 @@ extension CountryCell {
 
 extension CountryListForContinentWrapper {
     typealias Continent = CountryListForContinentWrapperContinent
-    
+
     init(continent: Continent) {
         self.init(code: continent.code, name: continent.code)
     }
@@ -54,6 +54,7 @@ extension ContinentCell {
     typealias Continent = ContinentCellContinent
     
     init(continent: Continent) {
+//        self.init(name: continent.name)
         self.init(countryList: continent.fragments.countryListForContinentWrapperContinent,
                   name: continent.name)
     }

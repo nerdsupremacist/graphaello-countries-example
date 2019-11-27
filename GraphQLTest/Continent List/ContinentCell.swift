@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct ContinentCell: View {
-    @Countries.Continent var countryList: CountryListForContinentWrapper.Continent
-    @Countries.Continent var name: String?
+//    @Countries.Continent.Fragment var countryList: CountryListForContinentWrapper.Continent
+    @Countries.Continent.Name var name: String?
     
     var body: some View {
-        NavigationLink(destination: CountryListForContinentWrapper(continent: countryList)) {
+//        NavigationLink(destination: CountryListForContinentWrapper(continent: countryList)) {
             HStack {
                 name.map { Text($0) }
             }
-        }
+//        }
     }
 }

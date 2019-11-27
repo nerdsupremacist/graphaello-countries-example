@@ -1,5 +1,5 @@
 //
-//  GraphQLType.swift
+//  GraphQLProperty.swift
 //  GraphQLTest
 //
 //  Created by Mathias Quintero on 25.11.19.
@@ -8,4 +8,4 @@
 
 import Foundation
 
-public protocol GraphQLType { }
+public protocol GraphQLProperty { }

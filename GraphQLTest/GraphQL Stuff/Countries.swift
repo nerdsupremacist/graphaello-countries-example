@@ -14,33 +14,162 @@ struct Countries {
     let client: ApolloClient
     
     func countries<Fragment: GraphQLFragment, Content: View>(body: @escaping ([Fragment]) -> Content) -> some View {
-        return QueryRenderer(client: client, query: CountriesQuery<Fragment>()) { body($0.countries?.compactMap { $0 } ?? []) }
+        return QueryRenderer(query: CountriesQuery<Fragment>()) { body($0.countries?.compactMap { $0 } ?? []) }
     }
-    
-    @propertyWrapper
-    struct Country<Value>: GraphQLType {
-        public var wrappedValue: Value
+
+    enum Country {
+        @propertyWrapper
+        struct Name: GraphQLProperty {
+            public var wrappedValue: String?
+
+            public init(wrappedValue: String?) {
+                self.wrappedValue = wrappedValue
+            }
+        }
+
+        @propertyWrapper
+        struct Native: GraphQLProperty {
+            public var wrappedValue: String?
+
+            public init(wrappedValue: String?) {
+                self.wrappedValue = wrappedValue
+            }
+        }
+
+        @propertyWrapper
+        struct Code: GraphQLProperty {
+            public var wrappedValue: String?
+
+            public init(wrappedValue: String?) {
+                self.wrappedValue = wrappedValue
+            }
+        }
+
+        @propertyWrapper
+        struct Emoji: GraphQLProperty {
+            public var wrappedValue: String?
+
+            public init(wrappedValue: String?) {
+                self.wrappedValue = wrappedValue
+            }
+        }
         
-        public init(wrappedValue: Value) {
-            self.wrappedValue = wrappedValue
+        @propertyWrapper
+        struct Phone: GraphQLProperty {
+            public var wrappedValue: String?
+
+            public init(wrappedValue: String?) {
+                self.wrappedValue = wrappedValue
+            }
+        }
+
+        @propertyWrapper
+        struct Currency: GraphQLProperty {
+            public var wrappedValue: String?
+
+            public init(wrappedValue: String?) {
+                self.wrappedValue = wrappedValue
+            }
+        }
+
+        // TODO: constraint to valid fragments
+        @propertyWrapper
+        struct Continent<Fragment: GraphQLFragment>: GraphQLProperty {
+            public var wrappedValue: Fragment?
+
+            public init(wrappedValue: Fragment?) {
+                self.wrappedValue = wrappedValue
+            }
+        }
+
+        // TODO: constraint to valid fragments
+        @propertyWrapper
+        struct Languages<Fragment: GraphQLFragment>: GraphQLProperty {
+            public var wrappedValue: [Fragment]?
+
+            public init(wrappedValue: [Fragment]?) {
+                self.wrappedValue = wrappedValue
+            }
+        }
+
+        // TODO: constraint to valid fragments
+        @propertyWrapper
+        struct Fragment<Fragment: GraphQLFragment>: GraphQLProperty {
+            public var wrappedValue: Fragment
+
+            public init(wrappedValue: Fragment) {
+                self.wrappedValue = wrappedValue
+            }
         }
     }
-    
-    @propertyWrapper
-    struct Continent<Value>: GraphQLType {
-        public var wrappedValue: Value
-        
-        public init(wrappedValue: Value) {
-            self.wrappedValue = wrappedValue
+
+    enum Continent {
+        @propertyWrapper
+        struct Name: GraphQLProperty {
+            public var wrappedValue: String?
+
+            public init(wrappedValue: String?) {
+                self.wrappedValue = wrappedValue
+            }
+        }
+
+        @propertyWrapper
+        struct Code: GraphQLProperty {
+            public var wrappedValue: String?
+
+            public init(wrappedValue: String?) {
+                self.wrappedValue = wrappedValue
+            }
+        }
+
+        // TODO: constraint to valid fragments
+        @propertyWrapper
+        struct Countries<Fragment: GraphQLFragment>: GraphQLProperty {
+            public var wrappedValue: [Fragment]?
+
+            public init(wrappedValue: [Fragment]?) {
+                self.wrappedValue = wrappedValue
+            }
+        }
+
+        // TODO: constraint to valid fragments
+        @propertyWrapper
+        struct Fragment<Fragment: GraphQLFragment>: GraphQLProperty {
+            public var wrappedValue: Fragment
+
+            public init(wrappedValue: Fragment) {
+                self.wrappedValue = wrappedValue
+            }
         }
     }
-    
-    @propertyWrapper
-    struct Language<Value>: GraphQLType {
-        public var wrappedValue: Value
-        
-        public init(wrappedValue: Value) {
-            self.wrappedValue = wrappedValue
+
+    enum Language {
+        @propertyWrapper
+        struct Name: GraphQLProperty {
+            public var wrappedValue: String?
+
+            public init(wrappedValue: String?) {
+                self.wrappedValue = wrappedValue
+            }
+        }
+
+        @propertyWrapper
+        struct Code: GraphQLProperty {
+            public var wrappedValue: String?
+
+            public init(wrappedValue: String?) {
+                self.wrappedValue = wrappedValue
+            }
+        }
+
+        // TODO: constraint to valid fragments
+        @propertyWrapper
+        struct Fragment<Fragment: GraphQLFragment>: GraphQLProperty {
+            public var wrappedValue: Fragment
+
+            public init(wrappedValue: Fragment) {
+                self.wrappedValue = wrappedValue
+            }
         }
     }
 }

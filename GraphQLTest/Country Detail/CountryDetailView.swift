@@ -9,15 +9,15 @@
 import SwiftUI
 
 struct CountryDetailView: View {
-    @Countries.Country private(set) var name: String?
-    @Countries.Country private(set) var native: String?
-    @Countries.Country private(set) var code: String?
-    @Countries.Country private(set) var emoji: String?
-    @Countries.Country private(set) var phone: String?
-    @Countries.Country private(set) var currency: String?
-    @Countries.Country private(set) var continent: ContinentCell.Continent?
-    @Countries.Country private(set) var languages: [LanguageCell.Language]?
-    
+    @Countries.Country.Name var name: String?
+    @Countries.Country.Native var native: String?
+    @Countries.Country.Code var code: String?
+    @Countries.Country.Emoji var emoji: String?
+    @Countries.Country.Phone var phone: String?
+    @Countries.Country.Currency var currency: String?
+    @Countries.Country.Continent var continent: ContinentCell.Continent?
+    @Countries.Country.Languages var languages: [LanguageCell.Language]?
+
     var body: some View {
         List {
             Section(header: Text("Basic Info")) {
