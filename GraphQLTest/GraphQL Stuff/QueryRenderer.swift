@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import Apollo
 
-private let client = ApolloClient(url: URL(string: "https://countries.trevorblades.com/")!)
+let client = ApolloClient(url: URL(string: "https://countries.trevorblades.com/")!)
 
 struct QueryRenderer<Query: GraphQLQuery, Content: View>: View {
     typealias ContentFactory = (Query.Data) -> Content

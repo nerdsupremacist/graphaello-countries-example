@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 import Apollo
 
 extension CountryDetailView {
@@ -65,4 +66,20 @@ extension LanguageCell {
     init(language: Language) {
         self.init(name: language.name)
     }
+}
+
+extension FullCountryList {
+    typealias Data = FullCountryListQuery.Data
+    
+    init(data: Data) {
+        self.init(countries: data.countries?.compactMap { $0?.fragments.countryCellCountry })
+    }
+}
+
+extension Countries {
+    
+    func fullCountryList() -> some View {
+        return QueryRenderer(query: FullCountryListQuery(), factory: FullCountryList.init)
+    }
+    
 }

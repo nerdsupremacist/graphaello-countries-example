@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct FullCountryList: View {
+    @Countries.Query.Countries var countries: [CountryCell.Country]?
+    
     var body: some View {
-        QueryRenderer(query: FullCountryListQuery()) { data in
-            CountryList(countries: data.countries?.compactMap { $0?.fragments.countryCellCountry } ?? [])
-        }.navigationBarTitle("Countries")
+        countries.map(CountryList.init).navigationBarTitle("Countries")
     }
 }

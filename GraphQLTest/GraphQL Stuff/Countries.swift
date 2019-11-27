@@ -8,7 +8,6 @@
 
 import Foundation
 import Apollo
-import SwiftUI
 
 struct Countries {
     let client: ApolloClient
