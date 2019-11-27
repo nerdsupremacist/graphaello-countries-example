@@ -18,7 +18,7 @@
 		0E2A94F12389EA4200D2940B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A94F02389EA4200D2940B /* API.swift */; };
 		0E2A94F32389F46A00D2940B /* CountryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A94F22389F46A00D2940B /* CountryList.swift */; };
 		0E2A94F72389F49700D2940B /* ContinentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A94F62389F49700D2940B /* ContinentCell.swift */; };
-		0E2A94F92389F51A00D2940B /* ContinentListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A94F82389F51A00D2940B /* ContinentListWrapper.swift */; };
+		0E2A94F92389F51A00D2940B /* FullContinentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A94F82389F51A00D2940B /* FullContinentList.swift */; };
 		0E2A95012389F6C500D2940B /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A95002389F6C500D2940B /* CountryCell.swift */; };
 		0E2A95072389F91400D2940B /* CountryListForContinentWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A95062389F91400D2940B /* CountryListForContinentWrapper.swift */; };
 		0E2A95092389FAA800D2940B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2A95082389FAA800D2940B /* ContentView.swift */; };
@@ -47,7 +47,7 @@
 		0E2A94F02389EA4200D2940B /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		0E2A94F22389F46A00D2940B /* CountryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryList.swift; sourceTree = "<group>"; };
 		0E2A94F62389F49700D2940B /* ContinentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentCell.swift; sourceTree = "<group>"; };
-		0E2A94F82389F51A00D2940B /* ContinentListWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentListWrapper.swift; sourceTree = "<group>"; };
+		0E2A94F82389F51A00D2940B /* FullContinentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullContinentList.swift; sourceTree = "<group>"; };
 		0E2A95002389F6C500D2940B /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		0E2A95062389F91400D2940B /* CountryListForContinentWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListForContinentWrapper.swift; sourceTree = "<group>"; };
 		0E2A95082389FAA800D2940B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 			children = (
 				0EAA8465237234B800B00277 /* ContinentList.swift */,
 				0E2A94F62389F49700D2940B /* ContinentCell.swift */,
-				0E2A94F82389F51A00D2940B /* ContinentListWrapper.swift */,
+				0E2A94F82389F51A00D2940B /* FullContinentList.swift */,
 			);
 			path = "Continent List";
 			sourceTree = "<group>";
@@ -295,6 +295,7 @@
 				0EAA8462237234B800B00277 /* AppDelegate.swift in Sources */,
 				0E2A94E82389DF7200D2940B /* QueryRenderer.swift in Sources */,
 				0E2A94F12389EA4200D2940B /* API.swift in Sources */,
+				0E29523B238C6EB2000F3217 /* Extensions.swift in Sources */,
 				0E2A951D238A0A6200D2940B /* LanguageCell.swift in Sources */,
 				0E295239238C6C0F000F3217 /* Countries.swift in Sources */,
 				0E3588D8238B0CB800473FB3 /* CountryInfo.swift in Sources */,
@@ -308,9 +309,8 @@
 				0E2A9511238A078B00D2940B /* FullCountryListWrapper.swift in Sources */,
 				0E2A9523238A0B4200D2940B /* LanguageListWrapper.swift in Sources */,
 				0E295237238C6BCD000F3217 /* GraphQLType.swift in Sources */,
-				0E2A94F92389F51A00D2940B /* ContinentListWrapper.swift in Sources */,
+				0E2A94F92389F51A00D2940B /* FullContinentList.swift in Sources */,
 				0EAA8466237234B800B00277 /* ContinentList.swift in Sources */,
-				0E29523B238C6EB2000F3217 /* Extensions.swift in Sources */,
 				0E2A95072389F91400D2940B /* CountryListForContinentWrapper.swift in Sources */,
 				0E2A95092389FAA800D2940B /* ContentView.swift in Sources */,
 			);

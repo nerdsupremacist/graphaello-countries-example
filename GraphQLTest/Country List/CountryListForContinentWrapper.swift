@@ -17,7 +17,6 @@ struct CountryListForContinentWrapper: View {
     }
     
     var body: some View {
-        return Text("")
         QueryRenderer(query: CountryByContinentListQuery(code: code)) { data in
             CountryList(countries: data.continent?.countries?.compactMap { $0?.fragments.countryCellCountry } ?? [])
         }.navigationBarTitle(Text(navigationTitle), displayMode: .inline)

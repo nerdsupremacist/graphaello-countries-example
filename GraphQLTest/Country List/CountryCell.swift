@@ -14,11 +14,11 @@ struct CountryCell: View {
     @Countries.Country.Name var name: String?
 
     var body: some View {
-//        NavigationLink(destination: CountryDetailsForBasicWrapper(country: detailsInfo)) {
+        NavigationLink(destination: CountryDetailsForBasicWrapper(country: detailsInfo)) {
             HStack {
                 emoji.map { Text($0) }
                 name.map { Text($0) }
             }
-//        }
+        }
     }
 }

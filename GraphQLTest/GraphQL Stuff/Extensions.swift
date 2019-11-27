@@ -54,7 +54,6 @@ extension ContinentCell {
     typealias Continent = ContinentCellContinent
     
     init(continent: Continent) {
-//        self.init(name: continent.name)
         self.init(countryList: continent.fragments.countryListForContinentWrapperContinent,
                   name: continent.name)
     }
