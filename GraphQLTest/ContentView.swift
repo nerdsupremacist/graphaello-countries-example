@@ -12,14 +12,14 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NavigationView {
-                FullCountryListWrapper()
+                FullCountryList()
             }.tabItem {
                 Image(systemName: "flag.fill")
                 Text("Countries")
             }
             
             NavigationView {
-                ContinentListWrapper()
+                FullContinentList()
             }.tabItem {
                 Image(systemName: "map.fill")
                 Text("Continents")

@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ContinentListWrapper: View {
+struct FullContinentList: View {
 
     var body: some View {
         QueryRenderer(query: ContinentListQuery()) { data in

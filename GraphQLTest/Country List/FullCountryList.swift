@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct FullCountryListWrapper: View {
+struct FullCountryList: View {
     var body: some View {
         QueryRenderer(query: FullCountryListQuery()) { data in
             CountryList(countries: data.countries?.compactMap { $0?.fragments.countryCellCountry } ?? [])
