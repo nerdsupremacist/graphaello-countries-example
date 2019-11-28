@@ -424,7 +424,7 @@ public final class CountryDetailsViewQuery: GraphQLQuery {
 
   public let operationName = "CountryDetailsView"
 
-  public var queryDocument: String { return operationDefinition.appending(CountryDetailViewCountry.fragmentDefinition).appending(ContinentCellContinent.fragmentDefinition).appending(LanguageCellLanguage.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending(CountryDetailViewCountry.fragmentDefinition).appending(CountryDetailBasicInfoViewCountry.fragmentDefinition).appending(ContinentCellContinent.fragmentDefinition).appending(LanguageCellLanguage.fragmentDefinition) }
 
   public var code: String?
 
@@ -582,11 +582,11 @@ public struct CountryCellCountry: GraphQLFragment {
   }
 }
 
-public struct CountryDetailViewCountry: GraphQLFragment {
+public struct CountryDetailBasicInfoViewCountry: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition =
     """
-    fragment CountryDetailView_Country on Country {
+    fragment CountryDetailBasicInfoView_Country on Country {
       __typename
       code
       name
@@ -594,14 +594,6 @@ public struct CountryDetailViewCountry: GraphQLFragment {
       phone
       currency
       emoji
-      continent {
-        __typename
-        ...ContinentCell_Continent
-      }
-      languages {
-        __typename
-        ...LanguageCell_Language
-      }
     }
     """
 
@@ -615,8 +607,6 @@ public struct CountryDetailViewCountry: GraphQLFragment {
     GraphQLField("phone", type: .scalar(String.self)),
     GraphQLField("currency", type: .scalar(String.self)),
     GraphQLField("emoji", type: .scalar(String.self)),
-    GraphQLField("continent", type: .object(Continent.selections)),
-    GraphQLField("languages", type: .list(.object(Language.selections))),
   ]
 
   public private(set) var resultMap: ResultMap
@@ -625,8 +615,8 @@ public struct CountryDetailViewCountry: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(code: String? = nil, name: String? = nil, native: String? = nil, phone: String? = nil, currency: String? = nil, emoji: String? = nil, continent: Continent? = nil, languages: [Language?]? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Country", "code": code, "name": name, "native": native, "phone": phone, "currency": currency, "emoji": emoji, "continent": continent.flatMap { (value: Continent) -> ResultMap in value.resultMap }, "languages": languages.flatMap { (value: [Language?]) -> [ResultMap?] in value.map { (value: Language?) -> ResultMap? in value.flatMap { (value: Language) -> ResultMap in value.resultMap } } }])
+  public init(code: String? = nil, name: String? = nil, native: String? = nil, phone: String? = nil, currency: String? = nil, emoji: String? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Country", "code": code, "name": name, "native": native, "phone": phone, "currency": currency, "emoji": emoji])
   }
 
   public var __typename: String {
@@ -691,6 +681,60 @@ public struct CountryDetailViewCountry: GraphQLFragment {
       resultMap.updateValue(newValue, forKey: "emoji")
     }
   }
+}
+
+public struct CountryDetailViewCountry: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition =
+    """
+    fragment CountryDetailView_Country on Country {
+      __typename
+      name
+      ...CountryDetailBasicInfoView_Country
+      continent {
+        __typename
+        ...ContinentCell_Continent
+      }
+      languages {
+        __typename
+        ...LanguageCell_Language
+      }
+    }
+    """
+
+  public static let possibleTypes = ["Country"]
+
+  public static let selections: [GraphQLSelection] = [
+    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+    GraphQLField("name", type: .scalar(String.self)),
+    GraphQLFragmentSpread(CountryDetailBasicInfoViewCountry.self),
+    GraphQLField("continent", type: .object(Continent.selections)),
+    GraphQLField("languages", type: .list(.object(Language.selections))),
+  ]
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var name: String? {
+    get {
+      return resultMap["name"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "name")
+    }
+  }
 
   public var continent: Continent? {
     get {
@@ -707,6 +751,32 @@ public struct CountryDetailViewCountry: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue.flatMap { (value: [Language?]) -> [ResultMap?] in value.map { (value: Language?) -> ResultMap? in value.flatMap { (value: Language) -> ResultMap in value.resultMap } } }, forKey: "languages")
+    }
+  }
+
+  public var fragments: Fragments {
+    get {
+      return Fragments(unsafeResultMap: resultMap)
+    }
+    set {
+      resultMap += newValue.resultMap
+    }
+  }
+
+  public struct Fragments {
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public var countryDetailBasicInfoViewCountry: CountryDetailBasicInfoViewCountry {
+      get {
+        return CountryDetailBasicInfoViewCountry(unsafeResultMap: resultMap)
+      }
+      set {
+        resultMap += newValue.resultMap
+      }
     }
   }
 

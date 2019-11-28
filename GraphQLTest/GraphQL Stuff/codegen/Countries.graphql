@@ -6,13 +6,18 @@ fragment CountryCell_Country on Country {
     emoji
 }
 
-fragment CountryDetailView_Country on Country {
+fragment CountryDetailBasicInfoView_Country on Country {
     code
     name
     native
     phone
     currency
     emoji
+}
+
+fragment CountryDetailView_Country on Country {
+    name
+    ...CountryDetailBasicInfoView_Country
     continent {
         ...ContinentCell_Continent
     }

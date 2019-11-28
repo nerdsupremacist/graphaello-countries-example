@@ -12,17 +12,28 @@ import Foundation
 import SwiftUI
 import Apollo
 
+extension CountryDetailBasicInfoView {
+    typealias Country = CountryDetailBasicInfoViewCountry
+    
+    init(country: Country) {
+        self.init(name: country.name,
+                  native: country.native,
+                  code: country.code,
+                  emoji: country.emoji,
+                  phone: country.phone,
+                  currency: country.currency)
+    }
+}
+
+extension CountryDetailBasicInfoView.Country : CountriesCountryFragment { }
+
 extension CountryDetailView {
     typealias Country = CountryDetailViewCountry
     
     init(api: Countries, country: Country) {
         self.init(api: api,
+                  basicInfo: country.fragments.countryDetailBasicInfoViewCountry,
                   name: country.name,
-                  native: country.native,
-                  code: country.code,
-                  emoji: country.emoji,
-                  phone: country.phone,
-                  currency: country.currency,
                   continent: country.continent?.fragments.continentCellContinent,
                   languages: country.languages?.compactMap { $0?.fragments.languageCellLanguage })
     }
