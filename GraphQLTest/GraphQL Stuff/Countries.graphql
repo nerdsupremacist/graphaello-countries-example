@@ -37,6 +37,13 @@ fragment LanguageCell_Language on Language {
     name
 }
 
+fragment CountryListForContinent_Continent on Continent {
+    name
+    countries {
+        ...CountryCell_Country
+    }
+}
+
 query FullCountryList {
     countries {
         ...CountryCell_Country
@@ -55,11 +62,9 @@ query FullLanguageList {
     }
 }
 
-query CountryByContinentList($code: String) {
+query CountryListForContinent($code: String) {
     continent(code: $code) {
-        countries {
-            ...CountryCell_Country
-        }
+        ...CountryListForContinent_Continent
     }
 }
 

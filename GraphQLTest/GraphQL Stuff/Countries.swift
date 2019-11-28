@@ -44,7 +44,7 @@ struct Countries {
         struct Continent<Fragment: GraphQLFragment>: GraphQLProperty {
             public var wrappedValue: Fragment?
 
-            public init(wrappedValue: Fragment?, code: GraphQLArgument<String?>) {
+            public init(wrappedValue: Fragment?) {
                 self.wrappedValue = wrappedValue
             }
         }

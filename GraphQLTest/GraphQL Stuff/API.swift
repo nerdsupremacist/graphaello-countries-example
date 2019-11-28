@@ -306,24 +306,21 @@ public final class FullLanguageListQuery: GraphQLQuery {
   }
 }
 
-public final class CountryByContinentListQuery: GraphQLQuery {
+public final class CountryListForContinentQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition =
     """
-    query CountryByContinentList($code: String) {
+    query CountryListForContinent($code: String) {
       continent(code: $code) {
         __typename
-        countries {
-          __typename
-          ...CountryCell_Country
-        }
+        ...CountryListForContinent_Continent
       }
     }
     """
 
-  public let operationName = "CountryByContinentList"
+  public let operationName = "CountryListForContinent"
 
-  public var queryDocument: String { return operationDefinition.appending(CountryCellCountry.fragmentDefinition).appending(CountryDetailsForBasicWrapperCountry.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending(CountryListForContinentContinent.fragmentDefinition).appending(CountryCellCountry.fragmentDefinition).appending(CountryDetailsForBasicWrapperCountry.fragmentDefinition) }
 
   public var code: String?
 
@@ -366,17 +363,13 @@ public final class CountryByContinentListQuery: GraphQLQuery {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLField("countries", type: .list(.object(Country.selections))),
+        GraphQLFragmentSpread(CountryListForContinentContinent.self),
       ]
 
       public private(set) var resultMap: ResultMap
 
       public init(unsafeResultMap: ResultMap) {
         self.resultMap = unsafeResultMap
-      }
-
-      public init(countries: [Country?]? = nil) {
-        self.init(unsafeResultMap: ["__typename": "Continent", "countries": countries.flatMap { (value: [Country?]) -> [ResultMap?] in value.map { (value: Country?) -> ResultMap? in value.flatMap { (value: Country) -> ResultMap in value.resultMap } } }])
       }
 
       public var __typename: String {
@@ -388,65 +381,28 @@ public final class CountryByContinentListQuery: GraphQLQuery {
         }
       }
 
-      public var countries: [Country?]? {
+      public var fragments: Fragments {
         get {
-          return (resultMap["countries"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Country?] in value.map { (value: ResultMap?) -> Country? in value.flatMap { (value: ResultMap) -> Country in Country(unsafeResultMap: value) } } }
+          return Fragments(unsafeResultMap: resultMap)
         }
         set {
-          resultMap.updateValue(newValue.flatMap { (value: [Country?]) -> [ResultMap?] in value.map { (value: Country?) -> ResultMap? in value.flatMap { (value: Country) -> ResultMap in value.resultMap } } }, forKey: "countries")
+          resultMap += newValue.resultMap
         }
       }
 
-      public struct Country: GraphQLSelectionSet {
-        public static let possibleTypes = ["Country"]
-
-        public static let selections: [GraphQLSelection] = [
-          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLFragmentSpread(CountryCellCountry.self),
-        ]
-
+      public struct Fragments {
         public private(set) var resultMap: ResultMap
 
         public init(unsafeResultMap: ResultMap) {
           self.resultMap = unsafeResultMap
         }
 
-        public init(code: String? = nil, name: String? = nil, emoji: String? = nil) {
-          self.init(unsafeResultMap: ["__typename": "Country", "code": code, "name": name, "emoji": emoji])
-        }
-
-        public var __typename: String {
+        public var countryListForContinentContinent: CountryListForContinentContinent {
           get {
-            return resultMap["__typename"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "__typename")
-          }
-        }
-
-        public var fragments: Fragments {
-          get {
-            return Fragments(unsafeResultMap: resultMap)
+            return CountryListForContinentContinent(unsafeResultMap: resultMap)
           }
           set {
             resultMap += newValue.resultMap
-          }
-        }
-
-        public struct Fragments {
-          public private(set) var resultMap: ResultMap
-
-          public init(unsafeResultMap: ResultMap) {
-            self.resultMap = unsafeResultMap
-          }
-
-          public var countryCellCountry: CountryCellCountry {
-            get {
-              return CountryCellCountry(unsafeResultMap: resultMap)
-            }
-            set {
-              resultMap += newValue.resultMap
-            }
           }
         }
       }
@@ -1099,6 +1055,120 @@ public struct LanguageCellLanguage: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "name")
+    }
+  }
+}
+
+public struct CountryListForContinentContinent: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition =
+    """
+    fragment CountryListForContinent_Continent on Continent {
+      __typename
+      name
+      countries {
+        __typename
+        ...CountryCell_Country
+      }
+    }
+    """
+
+  public static let possibleTypes = ["Continent"]
+
+  public static let selections: [GraphQLSelection] = [
+    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+    GraphQLField("name", type: .scalar(String.self)),
+    GraphQLField("countries", type: .list(.object(Country.selections))),
+  ]
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(name: String? = nil, countries: [Country?]? = nil) {
+    self.init(unsafeResultMap: ["__typename": "Continent", "name": name, "countries": countries.flatMap { (value: [Country?]) -> [ResultMap?] in value.map { (value: Country?) -> ResultMap? in value.flatMap { (value: Country) -> ResultMap in value.resultMap } } }])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var name: String? {
+    get {
+      return resultMap["name"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "name")
+    }
+  }
+
+  public var countries: [Country?]? {
+    get {
+      return (resultMap["countries"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Country?] in value.map { (value: ResultMap?) -> Country? in value.flatMap { (value: ResultMap) -> Country in Country(unsafeResultMap: value) } } }
+    }
+    set {
+      resultMap.updateValue(newValue.flatMap { (value: [Country?]) -> [ResultMap?] in value.map { (value: Country?) -> ResultMap? in value.flatMap { (value: Country) -> ResultMap in value.resultMap } } }, forKey: "countries")
+    }
+  }
+
+  public struct Country: GraphQLSelectionSet {
+    public static let possibleTypes = ["Country"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLFragmentSpread(CountryCellCountry.self),
+    ]
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(code: String? = nil, name: String? = nil, emoji: String? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Country", "code": code, "name": name, "emoji": emoji])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var fragments: Fragments {
+      get {
+        return Fragments(unsafeResultMap: resultMap)
+      }
+      set {
+        resultMap += newValue.resultMap
+      }
+    }
+
+    public struct Fragments {
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var countryCellCountry: CountryCellCountry {
+        get {
+          return CountryCellCountry(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
     }
   }
 }

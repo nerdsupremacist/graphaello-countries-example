@@ -9,16 +9,9 @@
 import SwiftUI
 
 struct CountryListForContinentWrapper: View {
-    @Countries.Continent.Code var code: String?
-    @Countries.Continent.Name var name: String?
-    
-    var navigationTitle: String {
-        return name ?? "Countries"
-    }
+    @Countries.Query.Continent var continent: CountryListForContinent.Continent?
     
     var body: some View {
-        QueryRenderer(query: CountryByContinentListQuery(code: code)) { data in
-            CountryList(countries: data.continent?.countries?.compactMap { $0?.fragments.countryCellCountry } ?? [])
-        }.navigationBarTitle(Text(navigationTitle), displayMode: .inline)
+        continent.map(CountryListForContinent.init)
     }
 }

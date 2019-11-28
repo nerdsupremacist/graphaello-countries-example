@@ -34,11 +34,11 @@ extension CountryCell {
     }
 }
 
-extension CountryListForContinentWrapper {
-    typealias Continent = CountryListForContinentWrapperContinent
-
+extension CountryListForContinent {
+    typealias Continent = CountryListForContinentContinent
+    
     init(continent: Continent) {
-        self.init(code: continent.code, name: continent.code)
+        self.init(name: continent.name, countries: continent.countries?.compactMap { $0?.fragments.countryCellCountry })
     }
 }
 
@@ -46,8 +46,7 @@ extension ContinentCell {
     typealias Continent = ContinentCellContinent
     
     init(continent: Continent) {
-        self.init(countryList: continent.fragments.countryListForContinentWrapperContinent,
-                  name: continent.name)
+        self.init(name: continent.name)
     }
 }
 
@@ -121,4 +120,12 @@ extension Countries {
         return QueryRenderer(query: CountryDetailsViewQuery(code: code), factory: CountryDetailsViewWrapper.init)
     }
     
+}
+
+extension CountryListForContinentWrapper {
+    typealias Data = CountryListForContinentQuery.Data
+
+    init(data: Data) {
+        self.init(continent: data.continent?.fragments.countryListForContinentContinent)
+    }
 }
