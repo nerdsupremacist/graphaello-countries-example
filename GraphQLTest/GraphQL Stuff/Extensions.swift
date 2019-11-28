@@ -69,7 +69,7 @@ extension FullCountryList {
 extension Countries {
     
     func fullCountryList() -> some View {
-        return QueryRenderer(query: FullCountryListQuery(), factory: FullCountryList.init)
+        return QueryRenderer(client: client, query: FullCountryListQuery(), factory: FullCountryList.init)
     }
     
 }
@@ -85,7 +85,7 @@ extension FullContinentList {
 extension Countries {
     
     func fullContinentList() -> some View {
-        return QueryRenderer(query: FullContinentListQuery(), factory: FullContinentList.init)
+        return QueryRenderer(client: client, query: FullContinentListQuery(), factory: FullContinentList.init)
     }
     
 }
@@ -101,7 +101,7 @@ extension FullLanguageList {
 extension Countries {
     
     func fullLanguageList() -> some View {
-        return QueryRenderer(query: FullLanguageListQuery(), factory: FullLanguageList.init)
+        return QueryRenderer(client: client, query: FullLanguageListQuery(), factory: FullLanguageList.init)
     }
     
 }
@@ -117,7 +117,7 @@ extension CountryDetailsViewWrapper {
 extension Countries {
     
     func countryDetailsView(code: String?) -> some View {
-        return QueryRenderer(query: CountryDetailsViewQuery(code: code), factory: CountryDetailsViewWrapper.init)
+        return QueryRenderer(client: client, query: CountryDetailsViewQuery(code: code), factory: CountryDetailsViewWrapper.init)
     }
     
 }
