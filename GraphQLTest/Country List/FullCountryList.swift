@@ -1,5 +1,5 @@
 //
-//  FullCountryListWrapper.swift
+//  FullCountryList.swift
 //  GraphQLTest
 //
 //  Created by Mathias Quintero on 24.11.19.

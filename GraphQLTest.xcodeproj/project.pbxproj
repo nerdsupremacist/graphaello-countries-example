@@ -30,9 +30,11 @@
 		0E68B1E1238EF3D100474D36 /* GraphQLArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68B1E0238EF3D100474D36 /* GraphQLArgument.swift */; };
 		0E68B1E3238F473000474D36 /* CountryListForContinent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68B1E2238F473000474D36 /* CountryListForContinent.swift */; };
 		0E68B1E6238F52CC00474D36 /* CountryDetailBasicInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68B1E5238F52CC00474D36 /* CountryDetailBasicInfoView.swift */; };
+		0E68B1E8239082E400474D36 /* Fragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68B1E7239082E400474D36 /* Fragment.swift */; };
+		0E68B1EA239082FB00474D36 /* GraphQLPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68B1E9239082FB00474D36 /* GraphQLPath.swift */; };
+		0E68B1EC2390832100474D36 /* GraphQLFragmentPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68B1EB2390832100474D36 /* GraphQLFragmentPath.swift */; };
 		0EAA8462237234B800B00277 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAA8461237234B800B00277 /* AppDelegate.swift */; };
 		0EAA8464237234B800B00277 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAA8463237234B800B00277 /* SceneDelegate.swift */; };
-		0EAA8466237234B800B00277 /* ContinentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAA8465237234B800B00277 /* ContinentList.swift */; };
 		0EAA8468237234BB00B00277 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA8467237234BB00B00277 /* Assets.xcassets */; };
 		0EAA846B237234BB00B00277 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA846A237234BB00B00277 /* Preview Assets.xcassets */; };
 		0EAA846E237234BB00B00277 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA846C237234BB00B00277 /* LaunchScreen.storyboard */; };
@@ -59,10 +61,12 @@
 		0E68B1E0238EF3D100474D36 /* GraphQLArgument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLArgument.swift; sourceTree = "<group>"; };
 		0E68B1E2238F473000474D36 /* CountryListForContinent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListForContinent.swift; sourceTree = "<group>"; };
 		0E68B1E5238F52CC00474D36 /* CountryDetailBasicInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailBasicInfoView.swift; sourceTree = "<group>"; };
+		0E68B1E7239082E400474D36 /* Fragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fragment.swift; sourceTree = "<group>"; };
+		0E68B1E9239082FB00474D36 /* GraphQLPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLPath.swift; sourceTree = "<group>"; };
+		0E68B1EB2390832100474D36 /* GraphQLFragmentPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLFragmentPath.swift; sourceTree = "<group>"; };
 		0EAA845E237234B800B00277 /* GraphQLTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphQLTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EAA8461237234B800B00277 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EAA8463237234B800B00277 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0EAA8465237234B800B00277 /* ContinentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinentList.swift; sourceTree = "<group>"; };
 		0EAA8467237234BB00B00277 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EAA846A237234BB00B00277 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0EAA846D237234BB00B00277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -97,7 +101,6 @@
 		0E2A94F52389F48900D2940B /* Continent List */ = {
 			isa = PBXGroup;
 			children = (
-				0EAA8465237234B800B00277 /* ContinentList.swift */,
 				0E2A94F62389F49700D2940B /* ContinentCell.swift */,
 				0E2A94F82389F51A00D2940B /* FullContinentList.swift */,
 			);
@@ -139,6 +142,9 @@
 			children = (
 				0E2A94E72389DF7200D2940B /* QueryRenderer.swift */,
 				0E295236238C6BCD000F3217 /* GraphQLProperty.swift */,
+				0E68B1E9239082FB00474D36 /* GraphQLPath.swift */,
+				0E68B1E7239082E400474D36 /* Fragment.swift */,
+				0E68B1EB2390832100474D36 /* GraphQLFragmentPath.swift */,
 				0E68B1E0238EF3D100474D36 /* GraphQLArgument.swift */,
 				0E68B1E4238F4ED600474D36 /* codegen */,
 			);
@@ -312,13 +318,15 @@
 				0E2A9514238A093E00D2940B /* CountryDetailView.swift in Sources */,
 				0E2A95012389F6C500D2940B /* CountryCell.swift in Sources */,
 				0E68B1E1238EF3D100474D36 /* GraphQLArgument.swift in Sources */,
+				0E68B1EA239082FB00474D36 /* GraphQLPath.swift in Sources */,
 				0E2A94F72389F49700D2940B /* ContinentCell.swift in Sources */,
 				0EAA8464237234B800B00277 /* SceneDelegate.swift in Sources */,
 				0E2A9511238A078B00D2940B /* FullCountryList.swift in Sources */,
 				0E2A9523238A0B4200D2940B /* FullLanguageList.swift in Sources */,
 				0E2A94F92389F51A00D2940B /* FullContinentList.swift in Sources */,
 				0E68B1E3238F473000474D36 /* CountryListForContinent.swift in Sources */,
-				0EAA8466237234B800B00277 /* ContinentList.swift in Sources */,
+				0E68B1E8239082E400474D36 /* Fragment.swift in Sources */,
+				0E68B1EC2390832100474D36 /* GraphQLFragmentPath.swift in Sources */,
 				0E68B1E6238F52CC00474D36 /* CountryDetailBasicInfoView.swift in Sources */,
 				0E2A95092389FAA800D2940B /* ContentView.swift in Sources */,
 			);

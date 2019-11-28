@@ -1,5 +1,5 @@
 //
-//  ContinentListWrapper.swift
+//  FullContinentList.swift
 //  GraphQLTest
 //
 //  Created by Mathias Quintero on 24.11.19.
@@ -16,7 +16,11 @@ struct FullContinentList: View {
 
     var body: some View {
         continents
-            .map { ContinentList(api: api, continents: $0) }
+            .map { continents in
+                List(continents, id: \.name) { continent in
+                    ContinentCell(api: self.api, continent: continent)
+                }.listStyle(GroupedListStyle())
+            }
             .navigationBarTitle("Continents")
     }
 }

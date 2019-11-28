@@ -9,22 +9,6 @@
 import Foundation
 import Apollo
 
-public protocol Fragment {
-    associatedtype UnderlyingType
-}
-
-public struct GraphQLPath<Value> { }
-
-public struct GraphQLFragmentPath<UnderlyingType> { }
-
-extension GraphQLFragmentPath {
-
-    var fragment: GraphQLFragmentPath<UnderlyingType> {
-        return self
-    }
-
-}
-
 @propertyWrapper
 public struct GraphQL<Value> {
     public var wrappedValue: Value
@@ -46,12 +30,4 @@ extension GraphQL where Value: Fragment {
     public init(wrappedValue: Value, _ path: GraphQLFragmentPath<Value.UnderlyingType>) {
         self.wrappedValue = wrappedValue
     }
-}
-
-extension Array: Fragment where Element: Fragment {
-    public typealias UnderlyingType = [Element.UnderlyingType]
-}
-
-extension Optional: Fragment where Wrapped: Fragment {
-    public typealias UnderlyingType = Wrapped.UnderlyingType?
 }
