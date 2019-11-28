@@ -12,13 +12,13 @@ struct CountryCell: View {
     let api: Countries
     
     @GraphQL(Countries.Country.code)
-    var code: String? = nil
+    var code: String?
     
     @GraphQL(Countries.Country.emoji)
-    var emoji: String? = nil
+    var emoji: String?
     
     @GraphQL(Countries.Country.name)
-    var name: String? = nil
+    var name: String?
 
     var body: some View {
         NavigationLink(destination: api.countryDetailsView(code: code)) {

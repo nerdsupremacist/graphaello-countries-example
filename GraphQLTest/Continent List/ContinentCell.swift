@@ -12,10 +12,10 @@ struct ContinentCell: View {
     let api: Countries
     
     @GraphQL(Countries.Continent.code)
-    var code: String? = nil
+    var code: String?
     
     @GraphQL(Countries.Continent.name)
-    var name: String? = nil
+    var name: String?
     
     var body: some View {
         NavigationLink(destination: api.countryListForContinent(code: code)) {

@@ -12,7 +12,7 @@ struct CountryListForContinentWrapper: View {
     let api: Countries
     
     @GraphQL(Countries.Query.continent(code: .argument))
-    var continent: CountryListForContinent.Continent? = nil
+    var continent: CountryListForContinent.Continent?
     
     var body: some View {
         continent.map { CountryListForContinent(api: api, continent: $0) }

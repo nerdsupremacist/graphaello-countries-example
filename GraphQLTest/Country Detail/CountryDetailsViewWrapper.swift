@@ -12,7 +12,7 @@ struct CountryDetailsViewWrapper: View {
     let api: Countries
     
     @GraphQL(Countries.Query.country(code: .argument))
-    var country: CountryDetailView.Country? = nil
+    var country: CountryDetailView.Country?
 
     var body: some View {
         country.map { CountryDetailView(api: api, country: $0) }

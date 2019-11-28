@@ -12,7 +12,7 @@ struct FullContinentList: View {
     let api: Countries
     
     @GraphQL(Countries.Query.continents())
-    var continents: [ContinentCell.Continent]? = nil
+    var continents: [ContinentCell.Continent]?
 
     var body: some View {
         continents

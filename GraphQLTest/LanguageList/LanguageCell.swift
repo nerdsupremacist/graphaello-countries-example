@@ -10,7 +10,7 @@ import SwiftUI
 
 struct LanguageCell: View {
     @GraphQL(Countries.Language.name)
-    var name: String? = nil
+    var name: String?
     
     var body: some View {
         name.map { Text($0) }

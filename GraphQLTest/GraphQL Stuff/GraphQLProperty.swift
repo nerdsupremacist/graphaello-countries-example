@@ -14,7 +14,11 @@ public struct GraphQLPath<Value> { }
 @propertyWrapper
 public struct GraphQL<Value> {
     public var wrappedValue: Value
-    
+
+    public init(_ path: GraphQLPath<Value>) {
+        fatalError("Initializer with path only should never be used")
+    }
+
     public init(wrappedValue: Value, _ path: GraphQLPath<Value>) {
         self.wrappedValue = wrappedValue
     }

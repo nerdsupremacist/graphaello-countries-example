@@ -12,7 +12,7 @@ struct FullCountryList: View {
     let api: Countries
     
     @GraphQL(Countries.Query.countries())
-    var countries: [CountryCell.Country]? = nil
+    var countries: [CountryCell.Country]?
     
     var body: some View {
         countries

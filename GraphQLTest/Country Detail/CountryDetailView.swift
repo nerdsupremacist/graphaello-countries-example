@@ -15,13 +15,13 @@ struct CountryDetailView: View {
     var basicInfo: CountryDetailBasicInfoView.Country
     
     @GraphQL(Countries.Country.name)
-    var name: String? = nil
+    var name: String?
     
     @GraphQL(Countries.Country.continent())
-    var continent: ContinentCell.Continent? = nil
+    var continent: ContinentCell.Continent?
     
     @GraphQL(Countries.Country.languages())
-    var languages: [LanguageCell.Language]? = nil
+    var languages: [LanguageCell.Language]?
 
     var body: some View {
         List {
