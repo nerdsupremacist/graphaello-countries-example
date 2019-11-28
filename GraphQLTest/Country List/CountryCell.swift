@@ -10,9 +10,15 @@ import SwiftUI
 
 struct CountryCell: View {
     let api: Countries
-    @Countries.Country.Code var code: String?
-    @Countries.Country.Emoji var emoji: String?
-    @Countries.Country.Name var name: String?
+    
+    @Countries.Country.Code
+    var code: String?
+    
+    @Countries.Country.Emoji
+    var emoji: String?
+    
+    @Countries.Country.Name
+    var name: String?
 
     var body: some View {
         NavigationLink(destination: api.countryDetailsView(code: code)) {

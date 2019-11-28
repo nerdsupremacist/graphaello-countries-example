@@ -10,8 +10,12 @@ import SwiftUI
 
 struct CountryListForContinent: View {
     let api: Countries
-    @Countries.Continent.Name var name: String?
-    @Countries.Continent.Countries var countries: [CountryCell.Country]?
+    
+    @Countries.Continent.Name
+    var name: String?
+    
+    @Countries.Continent.Countries
+    var countries: [CountryCell.Country]?
     
     var navigationTitle: String {
         return name ?? "Countries"

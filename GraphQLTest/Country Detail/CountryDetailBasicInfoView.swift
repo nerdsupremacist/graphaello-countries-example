@@ -9,12 +9,23 @@
 import SwiftUI
 
 struct CountryDetailBasicInfoView: View {
-    @Countries.Country.Name var name: String?
-    @Countries.Country.Native var native: String?
-    @Countries.Country.Code var code: String?
-    @Countries.Country.Emoji var emoji: String?
-    @Countries.Country.Phone var phone: String?
-    @Countries.Country.Currency var currency: String?
+    @Countries.Country.Name
+    var name: String?
+    
+    @Countries.Country.Native
+    var native: String?
+    
+    @Countries.Country.Code
+    var code: String?
+    
+    @Countries.Country.Emoji
+    var emoji: String?
+    
+    @Countries.Country.Phone
+    var phone: String?
+    
+    @Countries.Country.Currency
+    var currency: String?
     
     var body: some View {
         Section(header: Text("Basic Info")) {

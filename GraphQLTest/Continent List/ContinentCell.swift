@@ -10,8 +10,12 @@ import SwiftUI
 
 struct ContinentCell: View {
     let api: Countries
-    @Countries.Continent.Code var code: String?
-    @Countries.Continent.Name var name: String?
+    
+    @Countries.Continent.Code
+    var code: String?
+    
+    @Countries.Continent.Name
+    var name: String?
     
     var body: some View {
         NavigationLink(destination: api.countryListForContinent(code: code)) {

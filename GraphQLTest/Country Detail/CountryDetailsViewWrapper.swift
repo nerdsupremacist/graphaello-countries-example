@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CountryDetailsViewWrapper: View {
     let api: Countries
+    
     @Countries.Query.Country
     var country: CountryDetailView.Country?
 

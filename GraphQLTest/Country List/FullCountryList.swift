@@ -10,7 +10,9 @@ import SwiftUI
 
 struct FullCountryList: View {
     let api: Countries
-    @Countries.Query.Countries var countries: [CountryCell.Country]?
+    
+    @Countries.Query.Countries
+    var countries: [CountryCell.Country]?
     
     var body: some View {
         countries
