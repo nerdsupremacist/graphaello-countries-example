@@ -14,7 +14,7 @@ struct CountryListForContinent: View {
     @GraphQL(Countries.Continent.name)
     var name: String?
     
-    @GraphQL(Countries.Continent.countries())
+    @GraphQL(Countries.Continent.countries)
     var countries: [CountryCell.Country]?
     
     var navigationTitle: String {

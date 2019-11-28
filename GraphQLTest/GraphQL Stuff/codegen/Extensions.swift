@@ -25,21 +25,25 @@ extension CountryDetailBasicInfoView {
     }
 }
 
-extension CountryDetailBasicInfoView.Country : CountriesCountryFragment { }
+extension CountryDetailBasicInfoView.Country: Fragment {
+    public typealias UnderlyingType = Countries.Country
+}
 
 extension CountryDetailView {
     typealias Country = CountryDetailViewCountry
     
     init(api: Countries, country: Country) {
         self.init(api: api,
-                  basicInfo: country.fragments.countryDetailBasicInfoViewCountry,
+                  basicInfo: GraphQL(country.fragments.countryDetailBasicInfoViewCountry),
                   name: GraphQL(country.name),
                   continent: GraphQL(country.continent?.fragments.continentCellContinent),
                   languages: GraphQL(country.languages?.compactMap { $0?.fragments.languageCellLanguage }))
     }
 }
 
-extension CountryDetailView.Country : CountriesCountryFragment { }
+extension CountryDetailView.Country: Fragment {
+    public typealias UnderlyingType = Countries.Country
+}
 
 extension CountryCell {
     typealias Country = CountryCellCountry
@@ -52,7 +56,9 @@ extension CountryCell {
     }
 }
 
-extension CountryCell.Country : CountriesCountryFragment { }
+extension CountryCell.Country: Fragment {
+    public typealias UnderlyingType = Countries.Country
+}
 
 extension CountryListForContinent {
     typealias Continent = CountryListForContinentContinent
@@ -64,7 +70,9 @@ extension CountryListForContinent {
     }
 }
 
-extension CountryListForContinent.Continent : CountriesContinentFragment { }
+extension CountryListForContinent.Continent: Fragment {
+    public typealias UnderlyingType = Countries.Continent
+}
 
 extension ContinentCell {
     typealias Continent = ContinentCellContinent
@@ -74,7 +82,9 @@ extension ContinentCell {
     }
 }
 
-extension ContinentCell.Continent : CountriesContinentFragment { }
+extension ContinentCell.Continent: Fragment {
+    public typealias UnderlyingType = Countries.Continent
+}
 
 extension LanguageCell {
     typealias Language = LanguageCellLanguage
@@ -84,7 +94,9 @@ extension LanguageCell {
     }
 }
 
-extension LanguageCell.Language : CountriesLanguageFragment { }
+extension LanguageCell.Language: Fragment {
+    public typealias UnderlyingType = Countries.Language
+}
 
 extension FullCountryList {
     typealias Data = FullCountryListQuery.Data
@@ -174,6 +186,24 @@ extension Countries {
         }
     }
     
+}
+
+extension VenezuelaView {
+    typealias Data = VenezuelaViewQuery.Data
+
+    init(api: Countries, data: Data) {
+        self.init(api: api, country: GraphQL(data.country?.fragments.countryDetailViewCountry))
+    }
+}
+
+extension Countries {
+
+    func venezuelaView() -> some View {
+        return QueryRenderer(client: client, query: VenezuelaViewQuery()) { data in
+            VenezuelaView(api: self, data: data)
+        }
+    }
+
 }
 
 extension GraphQL {

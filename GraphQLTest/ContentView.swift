@@ -33,6 +33,13 @@ struct ContentView: View {
                 Image(systemName: "speaker.3.fill")
                 Text("Languages")
             }
+
+            NavigationView {
+                api.venezuelaView()
+            }.tabItem {
+                Image(systemName: "")
+                Text("Languages")
+            }
         }.edgesIgnoringSafeArea(.top)
     }
 }

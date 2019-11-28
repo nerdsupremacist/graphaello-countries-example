@@ -9,7 +9,15 @@
 import Foundation
 import Apollo
 
+public protocol Fragment {
+    associatedtype UnderlyingType
+}
+
 public struct GraphQLPath<Value> { }
+
+public struct GraphQLFragmentPath<UnderlyingType> { }
+
+public struct GraphQLElementFragmentPath<UnderlyingType> { }
 
 @propertyWrapper
 public struct GraphQL<Value> {
@@ -24,11 +32,20 @@ public struct GraphQL<Value> {
     }
 }
 
-@propertyWrapper
-public struct Fragment<Value: GraphQLFragment> {
-    public var wrappedValue: Value
-    
-    public init(wrappedValue: Value) {
+extension GraphQL where Value: Fragment {
+    public init(_ path: GraphQLFragmentPath<Value.UnderlyingType>) {
+        fatalError("Initializer with path only should never be used")
+    }
+
+    public init(wrappedValue: Value, _ path: GraphQLFragmentPath<Value.UnderlyingType>) {
         self.wrappedValue = wrappedValue
     }
+}
+
+extension Array: Fragment where Element: Fragment {
+    public typealias UnderlyingType = [Element.UnderlyingType]
+}
+
+extension Optional: Fragment where Wrapped: Fragment {
+    public typealias UnderlyingType = Wrapped.UnderlyingType?
 }

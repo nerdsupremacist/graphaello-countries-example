@@ -11,40 +11,36 @@
 import Foundation
 import Apollo
 
-protocol CountriesCountryFragment : GraphQLFragment { }
-protocol CountriesContinentFragment : GraphQLFragment { }
-protocol CountriesLanguageFragment : GraphQLFragment { }
-
-struct Countries {
+public struct Countries {
     let client: ApolloClient
     
-    enum Query {
-        static func continents<Fragment: CountriesContinentFragment>() -> GraphQLPath<[Fragment]?> {
-            return GraphQLPath()
+    public enum Query {
+        static let continents = GraphQLFragmentPath<[Continent]?>()
+
+        static let countries = GraphQLFragmentPath<[Country]?>()
+
+        static let languages = GraphQLFragmentPath<[Language]?>()
+
+        static let continent = GraphQLFragmentPath<Continent?>()
+
+        static let country = GraphQLFragmentPath<Country?>()
+
+        static let language = GraphQLFragmentPath<Language?>()
+        
+        static func continent(code: GraphQLArgument<String?>) -> GraphQLFragmentPath<Continent?> {
+            return GraphQLFragmentPath()
         }
         
-        static func countries<Fragment: CountriesCountryFragment>() -> GraphQLPath<[Fragment]?> {
-            return GraphQLPath()
+        static func country(code: GraphQLArgument<String?>) -> GraphQLFragmentPath<Country?> {
+            return GraphQLFragmentPath()
         }
         
-        static func languages<Fragment: CountriesLanguageFragment>() -> GraphQLPath<[Fragment]?> {
-            return GraphQLPath()
-        }
-        
-        static func continent<Fragment: CountriesContinentFragment>(code: GraphQLArgument<String?>) -> GraphQLPath<Fragment?> {
-            return GraphQLPath()
-        }
-        
-        static func country<Fragment: CountriesCountryFragment>(code: GraphQLArgument<String?>) -> GraphQLPath<Fragment?> {
-            return GraphQLPath()
-        }
-        
-        static func language<Fragment: CountriesLanguageFragment>(code: GraphQLArgument<String?>) -> GraphQLPath<Fragment?> {
-            return GraphQLPath()
+        static func language(code: GraphQLArgument<String?>) -> GraphQLFragmentPath<Language?> {
+            return GraphQLFragmentPath()
         }
     }
 
-    enum Country {
+    public enum Country {
         static let name = GraphQLPath<String?>()
         
         static let native = GraphQLPath<String?>()
@@ -57,38 +53,24 @@ struct Countries {
         
         static let currency = GraphQLPath<String?>()
         
-        static func continent<Fragment: CountriesContinentFragment>() -> GraphQLPath<Fragment?> {
-            return GraphQLPath()
-        }
-        
-        static func languages<Fragment: CountriesLanguageFragment>() -> GraphQLPath<[Fragment]?> {
-            return GraphQLPath()
-        }
+        static let continent = GraphQLFragmentPath<Continent?>()
+
+        static let languages = GraphQLFragmentPath<[Language]?>()
+
+        static let fragment = GraphQLFragmentPath<Country>()
     }
 
-    enum Continent {
+    public enum Continent {
         static let name = GraphQLPath<String?>()
-        
-        static let native = GraphQLPath<String?>()
-        
+
         static let code = GraphQLPath<String?>()
         
-        static let emoji = GraphQLPath<String?>()
-        
-        static let phone = GraphQLPath<String?>()
-        
-        static let currency = GraphQLPath<String?>()
-        
-        static func continent<Fragment: CountriesContinentFragment>() -> GraphQLPath<Fragment?> {
-            return GraphQLPath()
-        }
-        
-        static func countries<Fragment: CountriesCountryFragment>() -> GraphQLPath<[Fragment]?> {
-            return GraphQLPath()
-        }
+        static let countries = GraphQLFragmentPath<[Country]?>()
+
+        static let fragment = GraphQLFragmentPath<Continent>()
     }
 
-    enum Language {
+    public enum Language {
         static let name = GraphQLPath<String?>()
         
         static let native = GraphQLPath<String?>()
@@ -96,5 +78,7 @@ struct Countries {
         static let code = GraphQLPath<String?>()
         
         static let rtl = GraphQLPath<Int?>()
+
+        static let fragment = GraphQLFragmentPath<Language>()
     }
 }

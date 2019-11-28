@@ -73,3 +73,8 @@ query CountryDetailsView($code: String) {
     }
 }
 
+query VenezuelaView {
+    country(code: "VE") {
+        ...CountryDetailView_Country
+    }
+}
