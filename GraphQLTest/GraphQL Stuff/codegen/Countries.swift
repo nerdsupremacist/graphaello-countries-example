@@ -11,12 +11,16 @@
 import Foundation
 import Apollo
 
+protocol CountriesCountryFragment : GraphQLFragment { }
+protocol CountriesContinentFragment : GraphQLFragment { }
+protocol CountriesLanguageFragment : GraphQLFragment { }
+
 struct Countries {
     let client: ApolloClient
     
     enum Query {
         @propertyWrapper
-        struct Continents<Fragment: GraphQLFragment>: GraphQLProperty {
+        struct Continents<Fragment: CountriesContinentFragment>: GraphQLProperty {
             public var wrappedValue: [Fragment]?
 
             public init(wrappedValue: [Fragment]?) {
@@ -25,7 +29,7 @@ struct Countries {
         }
         
         @propertyWrapper
-        struct Countries<Fragment: GraphQLFragment>: GraphQLProperty {
+        struct Countries<Fragment: CountriesCountryFragment>: GraphQLProperty {
             public var wrappedValue: [Fragment]?
 
             public init(wrappedValue: [Fragment]?) {
@@ -34,7 +38,7 @@ struct Countries {
         }
         
         @propertyWrapper
-        struct Languages<Fragment: GraphQLFragment>: GraphQLProperty {
+        struct Languages<Fragment: CountriesLanguageFragment>: GraphQLProperty {
             public var wrappedValue: [Fragment]?
 
             public init(wrappedValue: [Fragment]?) {
@@ -43,7 +47,7 @@ struct Countries {
         }
         
         @propertyWrapper
-        struct Continent<Fragment: GraphQLFragment>: GraphQLProperty {
+        struct Continent<Fragment: CountriesContinentFragment>: GraphQLProperty {
             public var wrappedValue: Fragment?
 
             public init(wrappedValue: Fragment?) {
@@ -52,7 +56,7 @@ struct Countries {
         }
         
         @propertyWrapper
-        struct Country<Fragment: GraphQLFragment>: GraphQLProperty {
+        struct Country<Fragment: CountriesCountryFragment>: GraphQLProperty {
             public var wrappedValue: Fragment?
 
             public init(wrappedValue: Fragment?) {
@@ -61,7 +65,7 @@ struct Countries {
         }
         
         @propertyWrapper
-        struct Language<Fragment: GraphQLFragment>: GraphQLProperty {
+        struct Language<Fragment: CountriesLanguageFragment>: GraphQLProperty {
             public var wrappedValue: Fragment?
 
             public init(wrappedValue: Fragment?, code: GraphQLArgument<String?>) {
@@ -125,9 +129,8 @@ struct Countries {
             }
         }
 
-        // TODO: constraint to valid fragments
         @propertyWrapper
-        struct Continent<Fragment: GraphQLFragment>: GraphQLProperty {
+        struct Continent<Fragment: CountriesContinentFragment>: GraphQLProperty {
             public var wrappedValue: Fragment?
 
             public init(wrappedValue: Fragment?) {
@@ -135,9 +138,8 @@ struct Countries {
             }
         }
 
-        // TODO: constraint to valid fragments
         @propertyWrapper
-        struct Languages<Fragment: GraphQLFragment>: GraphQLProperty {
+        struct Languages<Fragment: CountriesLanguageFragment>: GraphQLProperty {
             public var wrappedValue: [Fragment]?
 
             public init(wrappedValue: [Fragment]?) {
@@ -145,9 +147,8 @@ struct Countries {
             }
         }
 
-        // TODO: constraint to valid fragments
         @propertyWrapper
-        struct Fragment<Fragment: GraphQLFragment>: GraphQLProperty {
+        struct Fragment<Fragment: CountriesCountryFragment>: GraphQLProperty {
             public var wrappedValue: Fragment
 
             public init(wrappedValue: Fragment) {
@@ -175,9 +176,8 @@ struct Countries {
             }
         }
 
-        // TODO: constraint to valid fragments
         @propertyWrapper
-        struct Countries<Fragment: GraphQLFragment>: GraphQLProperty {
+        struct Countries<Fragment: CountriesCountryFragment>: GraphQLProperty {
             public var wrappedValue: [Fragment]?
 
             public init(wrappedValue: [Fragment]?) {
@@ -185,9 +185,8 @@ struct Countries {
             }
         }
 
-        // TODO: constraint to valid fragments
         @propertyWrapper
-        struct Fragment<Fragment: GraphQLFragment>: GraphQLProperty {
+        struct Fragment<Fragment: CountriesContinentFragment>: GraphQLProperty {
             public var wrappedValue: Fragment
 
             public init(wrappedValue: Fragment) {
@@ -215,9 +214,8 @@ struct Countries {
             }
         }
 
-        // TODO: constraint to valid fragments
         @propertyWrapper
-        struct Fragment<Fragment: GraphQLFragment>: GraphQLProperty {
+        struct Fragment<Fragment: CountriesLanguageFragment>: GraphQLProperty {
             public var wrappedValue: Fragment
 
             public init(wrappedValue: Fragment) {

@@ -28,6 +28,8 @@ extension CountryDetailView {
     }
 }
 
+extension CountryDetailView.Country : CountriesCountryFragment { }
+
 extension CountryCell {
     typealias Country = CountryCellCountry
 
@@ -39,6 +41,8 @@ extension CountryCell {
     }
 }
 
+extension CountryCell.Country : CountriesCountryFragment { }
+
 extension CountryListForContinent {
     typealias Continent = CountryListForContinentContinent
     
@@ -49,6 +53,8 @@ extension CountryListForContinent {
     }
 }
 
+extension CountryListForContinent.Continent : CountriesContinentFragment { }
+
 extension ContinentCell {
     typealias Continent = ContinentCellContinent
     
@@ -57,6 +63,8 @@ extension ContinentCell {
     }
 }
 
+extension ContinentCell.Continent : CountriesContinentFragment { }
+
 extension LanguageCell {
     typealias Language = LanguageCellLanguage
     
@@ -64,6 +72,8 @@ extension LanguageCell {
         self.init(name: language.name)
     }
 }
+
+extension LanguageCell.Language : CountriesLanguageFragment { }
 
 extension FullCountryList {
     typealias Data = FullCountryListQuery.Data
