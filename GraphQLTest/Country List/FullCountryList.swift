@@ -9,9 +9,12 @@
 import SwiftUI
 
 struct FullCountryList: View {
+    let api: Countries
     @Countries.Query.Countries var countries: [CountryCell.Country]?
     
     var body: some View {
-        countries.map(CountryList.init).navigationBarTitle("Countries")
+        countries
+            .map { CountryList(api: api, countries: $0) }
+            .navigationBarTitle("Countries")
     }
 }

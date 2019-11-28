@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CountryDetailView: View {
+    let api: Countries
     @Countries.Country.Name var name: String?
     @Countries.Country.Native var native: String?
     @Countries.Country.Code var code: String?
@@ -31,7 +32,7 @@ struct CountryDetailView: View {
             
             continent.map { continent in
                 Section(header: Text("Continent")) {
-                    ContinentCell(continent: continent)
+                    ContinentCell(api: api, continent: continent)
                 }
             }
             

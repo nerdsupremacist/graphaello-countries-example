@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CountryListForContinent: View {
+    let api: Countries
     @Countries.Continent.Name var name: String?
     @Countries.Continent.Countries var countries: [CountryCell.Country]?
     
@@ -17,6 +18,8 @@ struct CountryListForContinent: View {
     }
     
     var body: some View {
-        countries.map(CountryList.init).navigationBarTitle(Text(navigationTitle), displayMode: .inline)
+        countries
+            .map { CountryList(api: api, countries: $0) }
+            .navigationBarTitle(Text(navigationTitle), displayMode: .inline)
     }
 }

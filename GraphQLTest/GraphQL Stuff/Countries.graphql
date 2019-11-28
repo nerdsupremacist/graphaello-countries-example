@@ -1,9 +1,5 @@
-fragment CountryDetailsForBasicWrapper_Country on Country {
-    code
-}
-
 fragment CountryCell_Country on Country {
-    ...CountryDetailsForBasicWrapper_Country
+    code
     name
     emoji
 }
@@ -23,12 +19,8 @@ fragment CountryDetailView_Country on Country {
     }
 }
 
-fragment CountryListForContinentWrapper_Continent on Continent {
-    code
-}
-
 fragment ContinentCell_Continent on Continent {
-    ...CountryListForContinentWrapper_Continent
+    code
     name
 }
 

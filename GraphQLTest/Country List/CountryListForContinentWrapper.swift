@@ -9,9 +9,10 @@
 import SwiftUI
 
 struct CountryListForContinentWrapper: View {
+    let api: Countries
     @Countries.Query.Continent var continent: CountryListForContinent.Continent?
     
     var body: some View {
-        continent.map(CountryListForContinent.init)
+        continent.map { CountryListForContinent(api: api, continent: $0) }
     }
 }

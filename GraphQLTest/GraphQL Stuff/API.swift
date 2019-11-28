@@ -17,7 +17,7 @@ public final class FullCountryListQuery: GraphQLQuery {
 
   public let operationName = "FullCountryList"
 
-  public var queryDocument: String { return operationDefinition.appending(CountryCellCountry.fragmentDefinition).appending(CountryDetailsForBasicWrapperCountry.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending(CountryCellCountry.fragmentDefinition) }
 
   public init() {
   }
@@ -118,7 +118,7 @@ public final class FullContinentListQuery: GraphQLQuery {
 
   public let operationName = "FullContinentList"
 
-  public var queryDocument: String { return operationDefinition.appending(ContinentCellContinent.fragmentDefinition).appending(CountryListForContinentWrapperContinent.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending(ContinentCellContinent.fragmentDefinition) }
 
   public init() {
   }
@@ -320,7 +320,7 @@ public final class CountryListForContinentQuery: GraphQLQuery {
 
   public let operationName = "CountryListForContinent"
 
-  public var queryDocument: String { return operationDefinition.appending(CountryListForContinentContinent.fragmentDefinition).appending(CountryCellCountry.fragmentDefinition).appending(CountryDetailsForBasicWrapperCountry.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending(CountryListForContinentContinent.fragmentDefinition).appending(CountryCellCountry.fragmentDefinition) }
 
   public var code: String?
 
@@ -424,7 +424,7 @@ public final class CountryDetailsViewQuery: GraphQLQuery {
 
   public let operationName = "CountryDetailsView"
 
-  public var queryDocument: String { return operationDefinition.appending(CountryDetailViewCountry.fragmentDefinition).appending(ContinentCellContinent.fragmentDefinition).appending(CountryListForContinentWrapperContinent.fragmentDefinition).appending(LanguageCellLanguage.fragmentDefinition) }
+  public var queryDocument: String { return operationDefinition.appending(CountryDetailViewCountry.fragmentDefinition).appending(ContinentCellContinent.fragmentDefinition).appending(LanguageCellLanguage.fragmentDefinition) }
 
   public var code: String?
 
@@ -514,59 +514,13 @@ public final class CountryDetailsViewQuery: GraphQLQuery {
   }
 }
 
-public struct CountryDetailsForBasicWrapperCountry: GraphQLFragment {
-  /// The raw GraphQL definition of this fragment.
-  public static let fragmentDefinition =
-    """
-    fragment CountryDetailsForBasicWrapper_Country on Country {
-      __typename
-      code
-    }
-    """
-
-  public static let possibleTypes = ["Country"]
-
-  public static let selections: [GraphQLSelection] = [
-    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-    GraphQLField("code", type: .scalar(String.self)),
-  ]
-
-  public private(set) var resultMap: ResultMap
-
-  public init(unsafeResultMap: ResultMap) {
-    self.resultMap = unsafeResultMap
-  }
-
-  public init(code: String? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Country", "code": code])
-  }
-
-  public var __typename: String {
-    get {
-      return resultMap["__typename"]! as! String
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "__typename")
-    }
-  }
-
-  public var code: String? {
-    get {
-      return resultMap["code"] as? String
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "code")
-    }
-  }
-}
-
 public struct CountryCellCountry: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition =
     """
     fragment CountryCell_Country on Country {
       __typename
-      ...CountryDetailsForBasicWrapper_Country
+      code
       name
       emoji
     }
@@ -576,7 +530,7 @@ public struct CountryCellCountry: GraphQLFragment {
 
   public static let selections: [GraphQLSelection] = [
     GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-    GraphQLFragmentSpread(CountryDetailsForBasicWrapperCountry.self),
+    GraphQLField("code", type: .scalar(String.self)),
     GraphQLField("name", type: .scalar(String.self)),
     GraphQLField("emoji", type: .scalar(String.self)),
   ]
@@ -600,6 +554,15 @@ public struct CountryCellCountry: GraphQLFragment {
     }
   }
 
+  public var code: String? {
+    get {
+      return resultMap["code"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "code")
+    }
+  }
+
   public var name: String? {
     get {
       return resultMap["name"] as? String
@@ -615,32 +578,6 @@ public struct CountryCellCountry: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "emoji")
-    }
-  }
-
-  public var fragments: Fragments {
-    get {
-      return Fragments(unsafeResultMap: resultMap)
-    }
-    set {
-      resultMap += newValue.resultMap
-    }
-  }
-
-  public struct Fragments {
-    public private(set) var resultMap: ResultMap
-
-    public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
-    }
-
-    public var countryDetailsForBasicWrapperCountry: CountryDetailsForBasicWrapperCountry {
-      get {
-        return CountryDetailsForBasicWrapperCountry(unsafeResultMap: resultMap)
-      }
-      set {
-        resultMap += newValue.resultMap
-      }
     }
   }
 }
@@ -882,59 +819,13 @@ public struct CountryDetailViewCountry: GraphQLFragment {
   }
 }
 
-public struct CountryListForContinentWrapperContinent: GraphQLFragment {
-  /// The raw GraphQL definition of this fragment.
-  public static let fragmentDefinition =
-    """
-    fragment CountryListForContinentWrapper_Continent on Continent {
-      __typename
-      code
-    }
-    """
-
-  public static let possibleTypes = ["Continent"]
-
-  public static let selections: [GraphQLSelection] = [
-    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-    GraphQLField("code", type: .scalar(String.self)),
-  ]
-
-  public private(set) var resultMap: ResultMap
-
-  public init(unsafeResultMap: ResultMap) {
-    self.resultMap = unsafeResultMap
-  }
-
-  public init(code: String? = nil) {
-    self.init(unsafeResultMap: ["__typename": "Continent", "code": code])
-  }
-
-  public var __typename: String {
-    get {
-      return resultMap["__typename"]! as! String
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "__typename")
-    }
-  }
-
-  public var code: String? {
-    get {
-      return resultMap["code"] as? String
-    }
-    set {
-      resultMap.updateValue(newValue, forKey: "code")
-    }
-  }
-}
-
 public struct ContinentCellContinent: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition =
     """
     fragment ContinentCell_Continent on Continent {
       __typename
-      ...CountryListForContinentWrapper_Continent
+      code
       name
     }
     """
@@ -943,7 +834,7 @@ public struct ContinentCellContinent: GraphQLFragment {
 
   public static let selections: [GraphQLSelection] = [
     GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-    GraphQLFragmentSpread(CountryListForContinentWrapperContinent.self),
+    GraphQLField("code", type: .scalar(String.self)),
     GraphQLField("name", type: .scalar(String.self)),
   ]
 
@@ -966,38 +857,21 @@ public struct ContinentCellContinent: GraphQLFragment {
     }
   }
 
+  public var code: String? {
+    get {
+      return resultMap["code"] as? String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "code")
+    }
+  }
+
   public var name: String? {
     get {
       return resultMap["name"] as? String
     }
     set {
       resultMap.updateValue(newValue, forKey: "name")
-    }
-  }
-
-  public var fragments: Fragments {
-    get {
-      return Fragments(unsafeResultMap: resultMap)
-    }
-    set {
-      resultMap += newValue.resultMap
-    }
-  }
-
-  public struct Fragments {
-    public private(set) var resultMap: ResultMap
-
-    public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
-    }
-
-    public var countryListForContinentWrapperContinent: CountryListForContinentWrapperContinent {
-      get {
-        return CountryListForContinentWrapperContinent(unsafeResultMap: resultMap)
-      }
-      set {
-        resultMap += newValue.resultMap
-      }
     }
   }
 }

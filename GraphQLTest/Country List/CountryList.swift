@@ -9,11 +9,12 @@
 import SwiftUI
 
 struct CountryList: View {
+    let api: Countries
     let countries: [CountryCell.Country]
 
     var body: some View {
         List(countries, id: \.name) { country in
-            CountryCell(country: country)
+            CountryCell(api: self.api, country: country)
         }.listStyle(GroupedListStyle())
     }
 }
