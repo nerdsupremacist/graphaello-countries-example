@@ -37,8 +37,8 @@ struct ContentView: View {
             NavigationView {
                 api.venezuelaView()
             }.tabItem {
-                Image(systemName: "")
-                Text("Languages")
+                Image(systemName: "person.crop.circle")
+                Text("My Country")
             }
         }.edgesIgnoringSafeArea(.top)
     }
