@@ -117,7 +117,9 @@ extension CountryDetailsViewWrapper {
 extension Countries {
     
     func countryDetailsView(code: String?) -> some View {
-        return QueryRenderer(client: client, query: CountryDetailsViewQuery(code: code), factory: CountryDetailsViewWrapper.init)
+        return QueryRenderer(client: client,
+                             query: CountryDetailsViewQuery(code: code),
+                             factory: CountryDetailsViewWrapper.init)
     }
     
 }
@@ -128,4 +130,14 @@ extension CountryListForContinentWrapper {
     init(data: Data) {
         self.init(continent: data.continent?.fragments.countryListForContinentContinent)
     }
+}
+
+extension Countries {
+    
+    func countryListForContinent(code: String?) -> some View {
+        return QueryRenderer(client: client,
+                             query: CountryListForContinentQuery(code: code),
+                             factory: CountryListForContinentWrapper.init)
+    }
+    
 }
