@@ -35,7 +35,7 @@ struct ContentView: View {
             }
 
             NavigationView {
-                api.venezuelaView()
+                api.countryDetailView(code: "VE")
             }.tabItem {
                 Image(systemName: "person.crop.circle")
                 Text("My Country")

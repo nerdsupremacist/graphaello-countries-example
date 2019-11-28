@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct FullLanguageList: View {
-    @GraphQL(Countries.Query.languages)
+    @GraphQL(Countries.languages)
     var languages: [LanguageCell.Language]?
     
     var body: some View {

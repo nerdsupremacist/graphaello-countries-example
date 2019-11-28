@@ -17,7 +17,13 @@ public struct GraphQLPath<Value> { }
 
 public struct GraphQLFragmentPath<UnderlyingType> { }
 
-public struct GraphQLElementFragmentPath<UnderlyingType> { }
+extension GraphQLFragmentPath {
+
+    var fragment: GraphQLFragmentPath<UnderlyingType> {
+        return self
+    }
+
+}
 
 @propertyWrapper
 public struct GraphQL<Value> {

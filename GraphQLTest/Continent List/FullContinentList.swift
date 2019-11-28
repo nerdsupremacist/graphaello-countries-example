@@ -11,7 +11,7 @@ import SwiftUI
 struct FullContinentList: View {
     let api: Countries
     
-    @GraphQL(Countries.Query.continents)
+    @GraphQL(Countries.continents)
     var continents: [ContinentCell.Continent]?
 
     var body: some View {

@@ -410,11 +410,11 @@ public final class CountryListForContinentQuery: GraphQLQuery {
   }
 }
 
-public final class CountryDetailsViewQuery: GraphQLQuery {
+public final class CountryDetailViewQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition =
     """
-    query CountryDetailsView($code: String) {
+    query CountryDetailView($code: String) {
       country(code: $code) {
         __typename
         ...CountryDetailView_Country
@@ -422,7 +422,7 @@ public final class CountryDetailsViewQuery: GraphQLQuery {
     }
     """
 
-  public let operationName = "CountryDetailsView"
+  public let operationName = "CountryDetailView"
 
   public var queryDocument: String { return operationDefinition.appending(CountryDetailViewCountry.fragmentDefinition).appending(CountryDetailBasicInfoViewCountry.fragmentDefinition).appending(ContinentCellContinent.fragmentDefinition).appending(LanguageCellLanguage.fragmentDefinition) }
 
@@ -441,103 +441,6 @@ public final class CountryDetailsViewQuery: GraphQLQuery {
 
     public static let selections: [GraphQLSelection] = [
       GraphQLField("country", arguments: ["code": GraphQLVariable("code")], type: .object(Country.selections)),
-    ]
-
-    public private(set) var resultMap: ResultMap
-
-    public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
-    }
-
-    public init(country: Country? = nil) {
-      self.init(unsafeResultMap: ["__typename": "Query", "country": country.flatMap { (value: Country) -> ResultMap in value.resultMap }])
-    }
-
-    public var country: Country? {
-      get {
-        return (resultMap["country"] as? ResultMap).flatMap { Country(unsafeResultMap: $0) }
-      }
-      set {
-        resultMap.updateValue(newValue?.resultMap, forKey: "country")
-      }
-    }
-
-    public struct Country: GraphQLSelectionSet {
-      public static let possibleTypes = ["Country"]
-
-      public static let selections: [GraphQLSelection] = [
-        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-        GraphQLFragmentSpread(CountryDetailViewCountry.self),
-      ]
-
-      public private(set) var resultMap: ResultMap
-
-      public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
-      }
-
-      public var __typename: String {
-        get {
-          return resultMap["__typename"]! as! String
-        }
-        set {
-          resultMap.updateValue(newValue, forKey: "__typename")
-        }
-      }
-
-      public var fragments: Fragments {
-        get {
-          return Fragments(unsafeResultMap: resultMap)
-        }
-        set {
-          resultMap += newValue.resultMap
-        }
-      }
-
-      public struct Fragments {
-        public private(set) var resultMap: ResultMap
-
-        public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
-        }
-
-        public var countryDetailViewCountry: CountryDetailViewCountry {
-          get {
-            return CountryDetailViewCountry(unsafeResultMap: resultMap)
-          }
-          set {
-            resultMap += newValue.resultMap
-          }
-        }
-      }
-    }
-  }
-}
-
-public final class VenezuelaViewQuery: GraphQLQuery {
-  /// The raw GraphQL definition of this operation.
-  public let operationDefinition =
-    """
-    query VenezuelaView {
-      country(code: "VE") {
-        __typename
-        ...CountryDetailView_Country
-      }
-    }
-    """
-
-  public let operationName = "VenezuelaView"
-
-  public var queryDocument: String { return operationDefinition.appending(CountryDetailViewCountry.fragmentDefinition).appending(CountryDetailBasicInfoViewCountry.fragmentDefinition).appending(ContinentCellContinent.fragmentDefinition).appending(LanguageCellLanguage.fragmentDefinition) }
-
-  public init() {
-  }
-
-  public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Query"]
-
-    public static let selections: [GraphQLSelection] = [
-      GraphQLField("country", arguments: ["code": "VE"], type: .object(Country.selections)),
     ]
 
     public private(set) var resultMap: ResultMap

@@ -67,14 +67,8 @@ query CountryListForContinent($code: String) {
     }
 }
 
-query CountryDetailsView($code: String) {
+query CountryDetailView($code: String) {
     country(code: $code) {
-        ...CountryDetailView_Country
-    }
-}
-
-query VenezuelaView {
-    country(code: "VE") {
         ...CountryDetailView_Country
     }
 }

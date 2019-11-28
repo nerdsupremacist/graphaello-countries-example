@@ -21,7 +21,7 @@ struct CountryCell: View {
     var name: String?
 
     var body: some View {
-        NavigationLink(destination: api.countryDetailsView(code: code)) {
+        NavigationLink(destination: api.countryDetailView(code: code)) {
             HStack {
                 emoji.map { Text($0) }
                 name.map { Text($0) }

@@ -32,12 +32,12 @@ extension CountryDetailBasicInfoView.Country: Fragment {
 extension CountryDetailView {
     typealias Country = CountryDetailViewCountry
     
-    init(api: Countries, country: Country) {
+    init(api: Countries, country: Country?) {
         self.init(api: api,
-                  basicInfo: GraphQL(country.fragments.countryDetailBasicInfoViewCountry),
-                  name: GraphQL(country.name),
-                  continent: GraphQL(country.continent?.fragments.continentCellContinent),
-                  languages: GraphQL(country.languages?.compactMap { $0?.fragments.languageCellLanguage }))
+                  basicInfo: GraphQL(country?.fragments.countryDetailBasicInfoViewCountry),
+                  name: GraphQL(country?.name),
+                  continent: GraphQL(country?.continent?.fragments.continentCellContinent),
+                  languages: GraphQL(country?.languages?.compactMap { $0?.fragments.languageCellLanguage }))
     }
 }
 
@@ -63,10 +63,10 @@ extension CountryCell.Country: Fragment {
 extension CountryListForContinent {
     typealias Continent = CountryListForContinentContinent
     
-    init(api: Countries, continent: Continent) {
+    init(api: Countries, continent: Continent?) {
         self.init(api: api,
-                  name: GraphQL(continent.name),
-                  countries: GraphQL(continent.countries?.compactMap { $0?.fragments.countryCellCountry }))
+                  name: GraphQL(continent?.name),
+                  countries: GraphQL(continent?.countries?.compactMap { $0?.fragments.countryCellCountry }))
     }
 }
 
@@ -148,31 +148,31 @@ extension Countries {
     
 }
 
-extension CountryDetailsViewWrapper {
-    typealias Data = CountryDetailsViewQuery.Data
+extension CountryDetailView {
+    typealias Data = CountryDetailViewQuery.Data
     
     init(api: Countries, data: Data) {
-        self.init(api: api, country: GraphQL(data.country?.fragments.countryDetailViewCountry))
+        self.init(api: api, country: data.country?.fragments.countryDetailViewCountry)
     }
 }
 
 extension Countries {
     
-    func countryDetailsView(code: String?) -> some View {
+    func countryDetailView(code: String?) -> some View {
         return QueryRenderer(client: client,
-                             query: CountryDetailsViewQuery(code: code)) { data in
+                             query: CountryDetailViewQuery(code: code)) { data in
             
-            CountryDetailsViewWrapper(api: self, data: data)
+            CountryDetailView(api: self, data: data)
         }
     }
     
 }
 
-extension CountryListForContinentWrapper {
+extension CountryListForContinent {
     typealias Data = CountryListForContinentQuery.Data
 
     init(api: Countries, data: Data) {
-        self.init(api: api, continent: GraphQL(data.continent?.fragments.countryListForContinentContinent))
+        self.init(api: api, continent: data.continent?.fragments.countryListForContinentContinent)
     }
 }
 
@@ -182,28 +182,10 @@ extension Countries {
         return QueryRenderer(client: client,
                              query: CountryListForContinentQuery(code: code)) { data in
             
-            CountryListForContinentWrapper(api: self, data: data)
+            CountryListForContinent(api: self, data: data)
         }
     }
     
-}
-
-extension VenezuelaView {
-    typealias Data = VenezuelaViewQuery.Data
-
-    init(api: Countries, data: Data) {
-        self.init(api: api, country: GraphQL(data.country?.fragments.countryDetailViewCountry))
-    }
-}
-
-extension Countries {
-
-    func venezuelaView() -> some View {
-        return QueryRenderer(client: client, query: VenezuelaViewQuery()) { data in
-            VenezuelaView(api: self, data: data)
-        }
-    }
-
 }
 
 extension GraphQL {

@@ -13,31 +13,29 @@ import Apollo
 
 public struct Countries {
     let client: ApolloClient
-    
-    public enum Query {
-        static let continents = GraphQLFragmentPath<[Continent]?>()
 
-        static let countries = GraphQLFragmentPath<[Country]?>()
+    static let continents = GraphQLFragmentPath<[Continent]?>()
 
-        static let languages = GraphQLFragmentPath<[Language]?>()
+    static let countries = GraphQLFragmentPath<[Country]?>()
 
-        static let continent = GraphQLFragmentPath<Continent?>()
+    static let languages = GraphQLFragmentPath<[Language]?>()
 
-        static let country = GraphQLFragmentPath<Country?>()
+    static let continent = GraphQLFragmentPath<Continent?>()
 
-        static let language = GraphQLFragmentPath<Language?>()
-        
-        static func continent(code: GraphQLArgument<String?>) -> GraphQLFragmentPath<Continent?> {
-            return GraphQLFragmentPath()
-        }
-        
-        static func country(code: GraphQLArgument<String?>) -> GraphQLFragmentPath<Country?> {
-            return GraphQLFragmentPath()
-        }
-        
-        static func language(code: GraphQLArgument<String?>) -> GraphQLFragmentPath<Language?> {
-            return GraphQLFragmentPath()
-        }
+    static let country = GraphQLFragmentPath<Country?>()
+
+    static let language = GraphQLFragmentPath<Language?>()
+
+    static func continent(code: GraphQLArgument<String?>) -> GraphQLFragmentPath<Continent?> {
+        return GraphQLFragmentPath()
+    }
+
+    static func country(code: GraphQLArgument<String?>) -> GraphQLFragmentPath<Country?> {
+        return GraphQLFragmentPath()
+    }
+
+    static func language(code: GraphQLArgument<String?>) -> GraphQLFragmentPath<Language?> {
+        return GraphQLFragmentPath()
     }
 
     public enum Country {
@@ -81,4 +79,76 @@ public struct Countries {
 
         static let fragment = GraphQLFragmentPath<Language>()
     }
+}
+
+extension GraphQLFragmentPath where UnderlyingType == Countries.Country {
+    var name: GraphQLPath<String?> { Countries.Country.name }
+
+    var native: GraphQLPath<String?> { Countries.Country.native }
+
+    var code: GraphQLPath<String?> { Countries.Country.code }
+
+    var emoji: GraphQLPath<String?> { Countries.Country.emoji }
+
+    var phone: GraphQLPath<String?> { Countries.Country.phone }
+
+    var currency: GraphQLPath<String?> { Countries.Country.currency }
+
+    var continent: GraphQLFragmentPath<Countries.Continent?> { Countries.Country.continent }
+
+    var languages: GraphQLFragmentPath<[Countries.Language]?> { Countries.Country.languages }
+}
+
+extension GraphQLFragmentPath where UnderlyingType == Countries.Continent {
+    var name: GraphQLPath<String?> { Countries.Continent.name }
+
+    var code: GraphQLPath<String?> { Countries.Continent.code }
+
+    var countries: GraphQLFragmentPath<[Countries.Country]?> { Countries.Continent.countries }
+}
+
+extension GraphQLFragmentPath where UnderlyingType == Countries.Language {
+    var name: GraphQLPath<String?> { Countries.Language.name }
+
+    var native: GraphQLPath<String?> { Countries.Language.native }
+
+    var code: GraphQLPath<String?> { Countries.Language.code }
+
+    var rtl: GraphQLPath<Int?> { Countries.Language.rtl }
+}
+
+extension GraphQLFragmentPath where UnderlyingType == Countries.Country? {
+    var name: GraphQLPath<String?> { Countries.Country.name }
+
+    var native: GraphQLPath<String?> { Countries.Country.native }
+
+    var code: GraphQLPath<String?> { Countries.Country.code }
+
+    var emoji: GraphQLPath<String?> { Countries.Country.emoji }
+
+    var phone: GraphQLPath<String?> { Countries.Country.phone }
+
+    var currency: GraphQLPath<String?> { Countries.Country.currency }
+
+    var continent: GraphQLFragmentPath<Countries.Continent?> { Countries.Country.continent }
+
+    var languages: GraphQLFragmentPath<[Countries.Language]?> { Countries.Country.languages }
+}
+
+extension GraphQLFragmentPath where UnderlyingType == Countries.Continent? {
+    var name: GraphQLPath<String?> { Countries.Continent.name }
+
+    var code: GraphQLPath<String?> { Countries.Continent.code }
+
+    var countries: GraphQLFragmentPath<[Countries.Country]?> { Countries.Continent.countries }
+}
+
+extension GraphQLFragmentPath where UnderlyingType == Countries.Language? {
+    var name: GraphQLPath<String?> { Countries.Language.name }
+
+    var native: GraphQLPath<String?> { Countries.Language.native }
+
+    var code: GraphQLPath<String?> { Countries.Language.code }
+
+    var rtl: GraphQLPath<Int?> { Countries.Language.rtl }
 }
