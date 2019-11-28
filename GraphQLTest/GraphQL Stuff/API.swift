@@ -454,11 +454,11 @@ public final class CountryByContinentListQuery: GraphQLQuery {
   }
 }
 
-public final class CountryDetailsForCodeQuery: GraphQLQuery {
+public final class CountryDetailsViewQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition =
     """
-    query CountryDetailsForCode($code: String) {
+    query CountryDetailsView($code: String) {
       country(code: $code) {
         __typename
         ...CountryDetailView_Country
@@ -466,7 +466,7 @@ public final class CountryDetailsForCodeQuery: GraphQLQuery {
     }
     """
 
-  public let operationName = "CountryDetailsForCode"
+  public let operationName = "CountryDetailsView"
 
   public var queryDocument: String { return operationDefinition.appending(CountryDetailViewCountry.fragmentDefinition).appending(ContinentCellContinent.fragmentDefinition).appending(CountryListForContinentWrapperContinent.fragmentDefinition).appending(LanguageCellLanguage.fragmentDefinition) }
 

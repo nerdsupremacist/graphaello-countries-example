@@ -25,20 +25,11 @@ extension CountryDetailView {
     }
 }
 
-extension CountryDetailsForBasicWrapper {
-    typealias Country = CountryDetailsForBasicWrapperCountry
-
-    init(country: Country) {
-        self.init(code: country.code)
-    }
-}
-
 extension CountryCell {
     typealias Country = CountryCellCountry
 
     init(country: Country) {
-        self.init(detailsInfo: country.fragments.countryDetailsForBasicWrapperCountry,
-                  emoji: country.emoji,
+        self.init(emoji: country.emoji,
                   name: country.name)
     }
 }
@@ -112,6 +103,22 @@ extension Countries {
     
     func fullLanguageList() -> some View {
         return QueryRenderer(query: FullLanguageListQuery(), factory: FullLanguageList.init)
+    }
+    
+}
+
+extension CountryDetailsViewWrapper {
+    typealias Data = CountryDetailsViewQuery.Data
+    
+    init(data: Data) {
+        self.init(country: data.country?.fragments.countryDetailViewCountry)
+    }
+}
+
+extension Countries {
+    
+    func countryDetailsView(code: String?) -> some View {
+        return QueryRenderer(query: CountryDetailsViewQuery(code: code), factory: CountryDetailsViewWrapper.init)
     }
     
 }

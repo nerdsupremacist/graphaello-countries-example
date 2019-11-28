@@ -63,7 +63,7 @@ query CountryByContinentList($code: String) {
     }
 }
 
-query CountryDetailsForCode($code: String) {
+query CountryDetailsView($code: String) {
     country(code: $code) {
         ...CountryDetailView_Country
     }
