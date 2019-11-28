@@ -11,10 +11,10 @@ import SwiftUI
 struct ContinentCell: View {
     let api: Countries
     
-    @Countries.Continent.Code
+    @GraphQL(Countries.Continent.code)
     var code: String?
     
-    @Countries.Continent.Name
+    @GraphQL(Countries.Continent.name)
     var name: String?
     
     var body: some View {

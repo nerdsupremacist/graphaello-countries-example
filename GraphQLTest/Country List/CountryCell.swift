@@ -11,13 +11,13 @@ import SwiftUI
 struct CountryCell: View {
     let api: Countries
     
-    @Countries.Country.Code
+    @GraphQL(Countries.Country.code)
     var code: String?
     
-    @Countries.Country.Emoji
+    @GraphQL(Countries.Country.emoji)
     var emoji: String?
     
-    @Countries.Country.Name
+    @GraphQL(Countries.Country.name)
     var name: String?
 
     var body: some View {

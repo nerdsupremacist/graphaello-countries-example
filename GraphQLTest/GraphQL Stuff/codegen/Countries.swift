@@ -11,216 +11,74 @@
 import Foundation
 import Apollo
 
-protocol CountriesCountryFragment : GraphQLFragment { }
-protocol CountriesContinentFragment : GraphQLFragment { }
-protocol CountriesLanguageFragment : GraphQLFragment { }
-
-struct Countries {
+public struct Countries {
     let client: ApolloClient
     
-    enum Query {
-        @propertyWrapper
-        struct Continents<Fragment: CountriesContinentFragment>: GraphQLProperty {
-            public var wrappedValue: [Fragment]?
+    public enum Query {
+        static let continents = GraphQLFragmentPath<[Continent]?>()
 
-            public init(wrappedValue: [Fragment]?) {
-                self.wrappedValue = wrappedValue
-            }
+        static let countries = GraphQLFragmentPath<[Country]?>()
+
+        static let languages = GraphQLFragmentPath<[Language]?>()
+
+        static let continent = GraphQLFragmentPath<Continent?>()
+
+        static let country = GraphQLFragmentPath<Country?>()
+
+        static let language = GraphQLFragmentPath<Language?>()
+        
+        static func continent(code: GraphQLArgument<String?>) -> GraphQLFragmentPath<Continent?> {
+            return GraphQLFragmentPath()
         }
         
-        @propertyWrapper
-        struct Countries<Fragment: CountriesCountryFragment>: GraphQLProperty {
-            public var wrappedValue: [Fragment]?
-
-            public init(wrappedValue: [Fragment]?) {
-                self.wrappedValue = wrappedValue
-            }
+        static func country(code: GraphQLArgument<String?>) -> GraphQLFragmentPath<Country?> {
+            return GraphQLFragmentPath()
         }
         
-        @propertyWrapper
-        struct Languages<Fragment: CountriesLanguageFragment>: GraphQLProperty {
-            public var wrappedValue: [Fragment]?
-
-            public init(wrappedValue: [Fragment]?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
-        
-        @propertyWrapper
-        struct Continent<Fragment: CountriesContinentFragment>: GraphQLProperty {
-            public var wrappedValue: Fragment?
-
-            public init(wrappedValue: Fragment?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
-        
-        @propertyWrapper
-        struct Country<Fragment: CountriesCountryFragment>: GraphQLProperty {
-            public var wrappedValue: Fragment?
-
-            public init(wrappedValue: Fragment?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
-        
-        @propertyWrapper
-        struct Language<Fragment: CountriesLanguageFragment>: GraphQLProperty {
-            public var wrappedValue: Fragment?
-
-            public init(wrappedValue: Fragment?, code: GraphQLArgument<String?>) {
-                self.wrappedValue = wrappedValue
-            }
+        static func language(code: GraphQLArgument<String?>) -> GraphQLFragmentPath<Language?> {
+            return GraphQLFragmentPath()
         }
     }
 
-    enum Country {
-        @propertyWrapper
-        struct Name: GraphQLProperty {
-            public var wrappedValue: String?
-
-            public init(wrappedValue: String?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
-
-        @propertyWrapper
-        struct Native: GraphQLProperty {
-            public var wrappedValue: String?
-
-            public init(wrappedValue: String?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
-
-        @propertyWrapper
-        struct Code: GraphQLProperty {
-            public var wrappedValue: String?
-
-            public init(wrappedValue: String?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
-
-        @propertyWrapper
-        struct Emoji: GraphQLProperty {
-            public var wrappedValue: String?
-
-            public init(wrappedValue: String?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
+    public enum Country {
+        static let name = GraphQLPath<String?>()
         
-        @propertyWrapper
-        struct Phone: GraphQLProperty {
-            public var wrappedValue: String?
+        static let native = GraphQLPath<String?>()
+        
+        static let code = GraphQLPath<String?>()
+        
+        static let emoji = GraphQLPath<String?>()
+        
+        static let phone = GraphQLPath<String?>()
+        
+        static let currency = GraphQLPath<String?>()
+        
+        static let continent = GraphQLFragmentPath<Continent?>()
 
-            public init(wrappedValue: String?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
+        static let languages = GraphQLFragmentPath<[Language]?>()
 
-        @propertyWrapper
-        struct Currency: GraphQLProperty {
-            public var wrappedValue: String?
-
-            public init(wrappedValue: String?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
-
-        @propertyWrapper
-        struct Continent<Fragment: CountriesContinentFragment>: GraphQLProperty {
-            public var wrappedValue: Fragment?
-
-            public init(wrappedValue: Fragment?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
-
-        @propertyWrapper
-        struct Languages<Fragment: CountriesLanguageFragment>: GraphQLProperty {
-            public var wrappedValue: [Fragment]?
-
-            public init(wrappedValue: [Fragment]?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
-
-        @propertyWrapper
-        struct Fragment<Fragment: CountriesCountryFragment>: GraphQLProperty {
-            public var wrappedValue: Fragment
-
-            public init(wrappedValue: Fragment) {
-                self.wrappedValue = wrappedValue
-            }
-        }
+        static let fragment = GraphQLFragmentPath<Country>()
     }
 
-    enum Continent {
-        @propertyWrapper
-        struct Name: GraphQLProperty {
-            public var wrappedValue: String?
+    public enum Continent {
+        static let name = GraphQLPath<String?>()
 
-            public init(wrappedValue: String?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
+        static let code = GraphQLPath<String?>()
+        
+        static let countries = GraphQLFragmentPath<[Country]?>()
 
-        @propertyWrapper
-        struct Code: GraphQLProperty {
-            public var wrappedValue: String?
-
-            public init(wrappedValue: String?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
-
-        @propertyWrapper
-        struct Countries<Fragment: CountriesCountryFragment>: GraphQLProperty {
-            public var wrappedValue: [Fragment]?
-
-            public init(wrappedValue: [Fragment]?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
-
-        @propertyWrapper
-        struct Fragment<Fragment: CountriesContinentFragment>: GraphQLProperty {
-            public var wrappedValue: Fragment
-
-            public init(wrappedValue: Fragment) {
-                self.wrappedValue = wrappedValue
-            }
-        }
+        static let fragment = GraphQLFragmentPath<Continent>()
     }
 
-    enum Language {
-        @propertyWrapper
-        struct Name: GraphQLProperty {
-            public var wrappedValue: String?
+    public enum Language {
+        static let name = GraphQLPath<String?>()
+        
+        static let native = GraphQLPath<String?>()
+        
+        static let code = GraphQLPath<String?>()
+        
+        static let rtl = GraphQLPath<Int?>()
 
-            public init(wrappedValue: String?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
-
-        @propertyWrapper
-        struct Code: GraphQLProperty {
-            public var wrappedValue: String?
-
-            public init(wrappedValue: String?) {
-                self.wrappedValue = wrappedValue
-            }
-        }
-
-        @propertyWrapper
-        struct Fragment<Fragment: CountriesLanguageFragment>: GraphQLProperty {
-            public var wrappedValue: Fragment
-
-            public init(wrappedValue: Fragment) {
-                self.wrappedValue = wrappedValue
-            }
-        }
+        static let fragment = GraphQLFragmentPath<Language>()
     }
 }

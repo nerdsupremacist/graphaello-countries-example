@@ -9,9 +9,16 @@
 import SwiftUI
 
 struct FullLanguageList: View {
-    @Countries.Query.Languages var languages: [LanguageCell.Language]?
+    @GraphQL(Countries.Query.languages)
+    var languages: [LanguageCell.Language]?
     
     var body: some View {
-        languages.map(LanguageList.init).navigationBarTitle("Languages")
+        languages
+            .map { languages in
+                List(languages, id: \.name) { language in
+                    LanguageCell(language: language)
+                }
+            }
+            .navigationBarTitle("Languages")
     }
 }

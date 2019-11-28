@@ -39,6 +39,7 @@
 		0EAA8468237234BB00B00277 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA8467237234BB00B00277 /* Assets.xcassets */; };
 		0EAA846B237234BB00B00277 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA846A237234BB00B00277 /* Preview Assets.xcassets */; };
 		0EAA846E237234BB00B00277 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA846C237234BB00B00277 /* LaunchScreen.storyboard */; };
+		0EB94F6723904C4C00DCDB23 /* VenezuelaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB94F6623904C4C00DCDB23 /* VenezuelaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		0EAA846A237234BB00B00277 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0EAA846D237234BB00B00277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EAA846F237234BB00B00277 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EB94F6623904C4C00DCDB23 /* VenezuelaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenezuelaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				0E68B1E5238F52CC00474D36 /* CountryDetailBasicInfoView.swift */,
 				0E3588D7238B0CB800473FB3 /* CountryInfo.swift */,
 				0E2A9524238A0C2D00D2940B /* CountryDetailsViewWrapper.swift */,
+				0EB94F6623904C4C00DCDB23 /* VenezuelaView.swift */,
 			);
 			path = "Country Detail";
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				0E3588D8238B0CB800473FB3 /* CountryInfo.swift in Sources */,
 				0E2A9514238A093E00D2940B /* CountryDetailView.swift in Sources */,
 				0E2A9525238A0C2D00D2940B /* CountryDetailsViewWrapper.swift in Sources */,
+				0EB94F6723904C4C00DCDB23 /* VenezuelaView.swift in Sources */,
 				0E2A95012389F6C500D2940B /* CountryCell.swift in Sources */,
 				0E68B1E1238EF3D100474D36 /* GraphQLArgument.swift in Sources */,
 				0E2A94F32389F46A00D2940B /* CountryList.swift in Sources */,
