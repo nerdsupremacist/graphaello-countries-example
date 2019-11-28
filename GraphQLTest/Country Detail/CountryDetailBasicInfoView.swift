@@ -9,23 +9,23 @@
 import SwiftUI
 
 struct CountryDetailBasicInfoView: View {
-    @Countries.Country.Name
-    var name: String?
+    @GraphQL(Countries.Country.name)
+    var name: String? = nil
     
-    @Countries.Country.Native
-    var native: String?
+    @GraphQL(Countries.Country.native)
+    var native: String? = nil
     
-    @Countries.Country.Code
-    var code: String?
+    @GraphQL(Countries.Country.code)
+    var code: String? = nil
     
-    @Countries.Country.Emoji
-    var emoji: String?
+    @GraphQL(Countries.Country.emoji)
+    var emoji: String? = nil
     
-    @Countries.Country.Phone
-    var phone: String?
+    @GraphQL(Countries.Country.phone)
+    var phone: String? = nil
     
-    @Countries.Country.Currency
-    var currency: String?
+    @GraphQL(Countries.Country.currency)
+    var currency: String? = nil
     
     var body: some View {
         Section(header: Text("Basic Info")) {

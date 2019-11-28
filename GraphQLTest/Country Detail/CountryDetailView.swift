@@ -11,17 +11,17 @@ import SwiftUI
 struct CountryDetailView: View {
     let api: Countries
     
-    @Countries.Country.Fragment
+    @Fragment
     var basicInfo: CountryDetailBasicInfoView.Country
     
-    @Countries.Country.Name
-    var name: String?
+    @GraphQL(Countries.Country.name)
+    var name: String? = nil
     
-    @Countries.Country.Continent
-    var continent: ContinentCell.Continent?
+    @GraphQL(Countries.Country.continent())
+    var continent: ContinentCell.Continent? = nil
     
-    @Countries.Country.Languages
-    var languages: [LanguageCell.Language]?
+    @GraphQL(Countries.Country.languages())
+    var languages: [LanguageCell.Language]? = nil
 
     var body: some View {
         List {

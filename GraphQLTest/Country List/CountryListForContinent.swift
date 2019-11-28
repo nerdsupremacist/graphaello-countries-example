@@ -11,11 +11,11 @@ import SwiftUI
 struct CountryListForContinent: View {
     let api: Countries
     
-    @Countries.Continent.Name
-    var name: String?
+    @GraphQL(Countries.Continent.name)
+    var name: String? = nil
     
-    @Countries.Continent.Countries
-    var countries: [CountryCell.Country]?
+    @GraphQL(Countries.Continent.countries())
+    var countries: [CountryCell.Country]? = nil
     
     var navigationTitle: String {
         return name ?? "Countries"

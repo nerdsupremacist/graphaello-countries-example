@@ -7,5 +7,24 @@
 //
 
 import Foundation
+import Apollo
 
-public protocol GraphQLProperty { }
+public struct GraphQLPath<Value> { }
+
+@propertyWrapper
+public struct GraphQL<Value> {
+    public var wrappedValue: Value
+    
+    public init(wrappedValue: Value, _ path: GraphQLPath<Value>) {
+        self.wrappedValue = wrappedValue
+    }
+}
+
+@propertyWrapper
+public struct Fragment<Value: GraphQLFragment> {
+    public var wrappedValue: Value
+    
+    public init(wrappedValue: Value) {
+        self.wrappedValue = wrappedValue
+    }
+}

@@ -11,8 +11,8 @@ import SwiftUI
 struct CountryDetailsViewWrapper: View {
     let api: Countries
     
-    @Countries.Query.Country
-    var country: CountryDetailView.Country?
+    @GraphQL(Countries.Query.country(code: .argument))
+    var country: CountryDetailView.Country? = nil
 
     var body: some View {
         country.map { CountryDetailView(api: api, country: $0) }

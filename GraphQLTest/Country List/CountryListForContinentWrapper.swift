@@ -11,8 +11,8 @@ import SwiftUI
 struct CountryListForContinentWrapper: View {
     let api: Countries
     
-    @Countries.Query.Continent
-    var continent: CountryListForContinent.Continent?
+    @GraphQL(Countries.Query.continent(code: .argument))
+    var continent: CountryListForContinent.Continent? = nil
     
     var body: some View {
         continent.map { CountryListForContinent(api: api, continent: $0) }

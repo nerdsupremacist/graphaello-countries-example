@@ -11,8 +11,8 @@ import SwiftUI
 struct FullCountryList: View {
     let api: Countries
     
-    @Countries.Query.Countries
-    var countries: [CountryCell.Country]?
+    @GraphQL(Countries.Query.countries())
+    var countries: [CountryCell.Country]? = nil
     
     var body: some View {
         countries

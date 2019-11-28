@@ -10,7 +10,9 @@ import SwiftUI
 
 struct FullContinentList: View {
     let api: Countries
-    @Countries.Query.Continents var continents: [ContinentCell.Continent]?
+    
+    @GraphQL(Countries.Query.continents())
+    var continents: [ContinentCell.Continent]? = nil
 
     var body: some View {
         continents

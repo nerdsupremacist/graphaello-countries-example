@@ -11,14 +11,14 @@ import SwiftUI
 struct CountryCell: View {
     let api: Countries
     
-    @Countries.Country.Code
-    var code: String?
+    @GraphQL(Countries.Country.code)
+    var code: String? = nil
     
-    @Countries.Country.Emoji
-    var emoji: String?
+    @GraphQL(Countries.Country.emoji)
+    var emoji: String? = nil
     
-    @Countries.Country.Name
-    var name: String?
+    @GraphQL(Countries.Country.name)
+    var name: String? = nil
 
     var body: some View {
         NavigationLink(destination: api.countryDetailsView(code: code)) {
