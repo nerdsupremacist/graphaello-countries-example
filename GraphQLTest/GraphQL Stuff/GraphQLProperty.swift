@@ -13,11 +13,11 @@ import Apollo
 public struct GraphQL<Value> {
     public var wrappedValue: Value
 
-    public init(_ path: GraphQLPath<Value>) {
+    public init(_ path: @autoclosure () -> GraphQLPath<Value>) {
         fatalError("Initializer with path only should never be used")
     }
 
-    public init(wrappedValue: Value, _ path: GraphQLPath<Value>) {
+    public init(wrappedValue: Value, _ path: @autoclosure () -> GraphQLPath<Value>) {
         self.wrappedValue = wrappedValue
     }
 }
