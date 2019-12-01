@@ -10,24 +10,24 @@ import Foundation
 import Apollo
 
 @propertyWrapper
-public struct GraphQL<Value> {
-    public var wrappedValue: Value
+struct GraphQL<Value> {
+    var wrappedValue: Value
 
-    public init(_ path: @autoclosure () -> GraphQLPath<Value>) {
+    init(_ path: @autoclosure () -> GraphQLPath<Value>) {
         fatalError("Initializer with path only should never be used")
     }
 
-    public init(wrappedValue: Value, _ path: @autoclosure () -> GraphQLPath<Value>) {
+    init(wrappedValue: Value, _ path: @autoclosure () -> GraphQLPath<Value>) {
         self.wrappedValue = wrappedValue
     }
 }
 
 extension GraphQL where Value: Fragment {
-    public init(_ path: GraphQLFragmentPath<Value.UnderlyingType>) {
+    init(_ path: GraphQLFragmentPath<Value.UnderlyingType>) {
         fatalError("Initializer with path only should never be used")
     }
 
-    public init(wrappedValue: Value, _ path: GraphQLFragmentPath<Value.UnderlyingType>) {
+    init(wrappedValue: Value, _ path: GraphQLFragmentPath<Value.UnderlyingType>) {
         self.wrappedValue = wrappedValue
     }
 }
