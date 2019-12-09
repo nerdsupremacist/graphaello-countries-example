@@ -10,11 +10,11 @@ import SwiftUI
 
 struct FullLanguageList: View {
     @GraphQL(Countries.languages)
-    var languages: [LanguageCell.Language]?
+    var languages: [LanguageCell.Language?]?
     
     var body: some View {
         languages
-            .map { languages in
+            .compactMap { languages in
                 List(languages, id: \.name) { language in
                     LanguageCell(language: language)
                 }

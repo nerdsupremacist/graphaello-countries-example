@@ -15,17 +15,6 @@ fragment CountryDetailBasicInfoView_Country on Country {
     emoji
 }
 
-fragment CountryDetailView_Country on Country {
-    name
-    ...CountryDetailBasicInfoView_Country
-    continent {
-        ...ContinentCell_Continent
-    }
-    languages {
-        ...LanguageCell_Language
-    }
-}
-
 fragment ContinentCell_Continent on Continent {
     code
     name
@@ -34,13 +23,6 @@ fragment ContinentCell_Continent on Continent {
 fragment LanguageCell_Language on Language {
     code
     name
-}
-
-fragment CountryListForContinent_Continent on Continent {
-    name
-    countries {
-        ...CountryCell_Country
-    }
 }
 
 query FullCountryList {
@@ -63,12 +45,22 @@ query FullLanguageList {
 
 query CountryListForContinent($code: String) {
     continent(code: $code) {
-        ...CountryListForContinent_Continent
+        name
+        countries {
+            ...CountryCell_Country
+        }
     }
 }
 
 query CountryDetailView($code: String) {
     country(code: $code) {
-        ...CountryDetailView_Country
+        name
+        ...CountryDetailBasicInfoView_Country
+        continent {
+            ...ContinentCell_Continent
+        }
+        languages {
+            ...LanguageCell_Language
+        }
     }
 }

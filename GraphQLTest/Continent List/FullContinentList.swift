@@ -12,11 +12,11 @@ struct FullContinentList: View {
     let api: Countries
     
     @GraphQL(Countries.continents)
-    var continents: [ContinentCell.Continent]?
+    var continents: [ContinentCell.Continent?]?
 
     var body: some View {
         continents
-            .map { continents in
+            .compactMap { continents in
                 List(continents, id: \.name) { continent in
                     ContinentCell(api: self.api, continent: continent)
                 }.listStyle(GroupedListStyle())

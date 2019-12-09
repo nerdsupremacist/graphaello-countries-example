@@ -21,7 +21,7 @@ struct CountryDetailView: View {
     var continent: ContinentCell.Continent?
     
     @GraphQL(Countries.country.languages)
-    var languages: [LanguageCell.Language]?
+    var languages: [LanguageCell.Language?]?
     
     var body: some View {
         List {
@@ -33,7 +33,7 @@ struct CountryDetailView: View {
                 }
             }
             
-            languages.flatMap { languages in
+            languages.compactMap { languages in
                 !languages.isEmpty ? Section(header: Text("Languages")) {
                     ForEach(languages, id: \.code) { language in
                         LanguageCell(language: language)

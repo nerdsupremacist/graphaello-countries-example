@@ -15,15 +15,24 @@ struct CountryListForContinent: View {
     var name: String?
     
     @GraphQL(Countries.continent.countries)
-    var countries: [CountryCell.Country]?
+    var countries: [CountryCell.Country?]?
     
     var navigationTitle: String {
         return name ?? "Countries"
     }
     
+    var other: String {
+        get {
+            return "Hello World"
+        }
+        set {
+            fatalError()
+        }
+    }
+    
     var body: some View {
         countries
-            .map { CountryList(api: api, countries: $0) }
+            .compactMap { CountryList(api: api, countries: $0) }
             .navigationBarTitle(Text(navigationTitle), displayMode: .inline)
     }
 }

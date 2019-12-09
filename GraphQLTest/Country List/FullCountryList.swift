@@ -12,11 +12,11 @@ struct FullCountryList: View {
     let api: Countries
     
     @GraphQL(Countries.countries)
-    var countries: [CountryCell.Country]?
+    var countries: [CountryCell.Country?]?
     
     var body: some View {
         countries
-            .map { CountryList(api: api, countries: $0) }
+            .compactMap { CountryList(api: api, countries: $0) }
             .navigationBarTitle("Countries")
     }
 }
