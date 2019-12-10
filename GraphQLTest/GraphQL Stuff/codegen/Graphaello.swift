@@ -5,6 +5,8 @@ import Apollo
 import Foundation
 import SwiftUI
 
+// MARK: Basic API
+
 private struct QueryRenderer<Query: GraphQLQuery, Content: View>: View {
     typealias ContentFactory = (Query.Data) -> Content
 
@@ -111,6 +113,8 @@ extension GraphQL where Value: Fragment {
         self.wrappedValue = wrappedValue
     }
 }
+
+// MARK: - Countries
 
 struct Countries {
     let client: ApolloClient
@@ -260,6 +264,8 @@ extension GraphQLFragmentPath where UnderlyingType == Countries.Language? {
     var rtl: GraphQLPath<Int?> { .init() }
 }
 
+// MARK: - ContinentCell
+
 extension ContinentCellContinent: Fragment {
     typealias UnderlyingType = Countries.Continent
 }
@@ -274,6 +280,8 @@ extension ContinentCell {
                   name: GraphQL(continent.name))
     }
 }
+
+// MARK: - CountryCell
 
 extension CountryCellCountry: Fragment {
     typealias UnderlyingType = Countries.Country
@@ -291,6 +299,8 @@ extension CountryCell {
     }
 }
 
+// MARK: - CountryDetailBasicInfoView
+
 extension CountryDetailBasicInfoViewCountry: Fragment {
     typealias UnderlyingType = Countries.Country
 }
@@ -307,6 +317,8 @@ extension CountryDetailBasicInfoView {
                   currency: GraphQL(country.currency))
     }
 }
+
+// MARK: - CountryDetailView
 
 extension CountryDetailView {
     typealias Data = CountryDetailViewQuery.Data
@@ -332,6 +344,8 @@ extension Countries {
     }
 }
 
+// MARK: - CountryListForContinent
+
 extension CountryListForContinent {
     typealias Data = CountryListForContinentQuery.Data
 
@@ -354,6 +368,8 @@ extension Countries {
     }
 }
 
+// MARK: - FullContinentList
+
 extension FullContinentList {
     typealias Data = FullContinentListQuery.Data
 
@@ -374,6 +390,8 @@ extension Countries {
         }
     }
 }
+
+// MARK: - FullCountryList
 
 extension FullCountryList {
     typealias Data = FullCountryListQuery.Data
@@ -396,6 +414,8 @@ extension Countries {
     }
 }
 
+// MARK: - FullLanguageList
+
 extension FullLanguageList {
     typealias Data = FullLanguageListQuery.Data
 
@@ -413,6 +433,8 @@ extension Countries {
         }
     }
 }
+
+// MARK: - LanguageCell
 
 extension LanguageCellLanguage: Fragment {
     typealias UnderlyingType = Countries.Language
