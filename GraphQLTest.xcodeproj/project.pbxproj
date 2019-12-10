@@ -31,7 +31,7 @@
 		0EAA8468237234BB00B00277 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA8467237234BB00B00277 /* Assets.xcassets */; };
 		0EAA846B237234BB00B00277 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA846A237234BB00B00277 /* Preview Assets.xcassets */; };
 		0EAA846E237234BB00B00277 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA846C237234BB00B00277 /* LaunchScreen.storyboard */; };
-		7DF45F275ACEC6772199B70A /* GraphQL+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C50B3C8FC7A9116DE8456D /* GraphQL+API.swift */; };
+		7DF45F275ACEC6772199B70A /* Graphaello.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C50B3C8FC7A9116DE8456D /* Graphaello.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +58,7 @@
 		0EAA846A237234BB00B00277 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0EAA846D237234BB00B00277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EAA846F237234BB00B00277 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71C50B3C8FC7A9116DE8456D /* GraphQL+API.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = "GraphQL+API.swift"; sourceTree = "<group>"; };
+		71C50B3C8FC7A9116DE8456D /* Graphaello.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Graphaello.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				0E2A94F02389EA4200D2940B /* API.swift */,
-				71C50B3C8FC7A9116DE8456D /* GraphQL+API.swift */,
+				71C50B3C8FC7A9116DE8456D /* Graphaello.swift */,
 				0E2A9520238A0B0D00D2940B /* Countries.graphql */,
 			);
 			path = codegen;
@@ -304,7 +304,7 @@
 				0E68B1E6238F52CC00474D36 /* CountryDetailBasicInfoView.swift in Sources */,
 				0E2A95092389FAA800D2940B /* ContentView.swift in Sources */,
 				0E4A1EE7239E96A800EA2CF8 /* Array+compacted.swift in Sources */,
-				7DF45F275ACEC6772199B70A /* GraphQL+API.swift in Sources */,
+				7DF45F275ACEC6772199B70A /* Graphaello.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
