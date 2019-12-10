@@ -275,6 +275,22 @@ extension ContinentCell {
     }
 }
 
+extension CountryCellCountry: Fragment {
+    typealias UnderlyingType = Countries.Country
+}
+
+extension CountryCell {
+    typealias Country = CountryCellCountry
+
+    init(api: Countries,
+         country: Country) {
+        self.init(api: api,
+                  code: GraphQL(country.code),
+                  emoji: GraphQL(country.emoji),
+                  name: GraphQL(country.name))
+    }
+}
+
 extension CountryDetailBasicInfoViewCountry: Fragment {
     typealias UnderlyingType = Countries.Country
 }
@@ -289,18 +305,6 @@ extension CountryDetailBasicInfoView {
                   emoji: GraphQL(country.emoji),
                   phone: GraphQL(country.phone),
                   currency: GraphQL(country.currency))
-    }
-}
-
-extension LanguageCellLanguage: Fragment {
-    typealias UnderlyingType = Countries.Language
-}
-
-extension LanguageCell {
-    typealias Language = LanguageCellLanguage
-
-    init(language: Language) {
-        self.init(name: GraphQL(language.name))
     }
 }
 
@@ -328,41 +332,24 @@ extension Countries {
     }
 }
 
-extension FullLanguageList {
-    typealias Data = FullLanguageListQuery.Data
-
-    init(data: Data) {
-        self.init(languages: GraphQL(data.languages?.map { $0?.fragments.languageCellLanguage }))
-    }
-}
-
-extension Countries {
-    func fullLanguageList() -> some View {
-        return QueryRenderer(client: client,
-                             query: FullLanguageListQuery()) { data in
-
-            FullLanguageList(data: data)
-        }
-    }
-}
-
-extension FullCountryList {
-    typealias Data = FullCountryListQuery.Data
+extension CountryListForContinent {
+    typealias Data = CountryListForContinentQuery.Data
 
     init(api: Countries,
          data: Data) {
         self.init(api: api,
-                  countries: GraphQL(data.countries?.map { $0?.fragments.countryCellCountry }))
+                  name: GraphQL(data.continent?.name),
+                  countries: GraphQL(data.continent?.countries?.map { $0?.fragments.countryCellCountry }))
     }
 }
 
 extension Countries {
-    func fullCountryList() -> some View {
+    func countryListForContinent(code: String?) -> some View {
         return QueryRenderer(client: client,
-                             query: FullCountryListQuery()) { data in
+                             query: CountryListForContinentQuery(code: code)) { data in
 
-            FullCountryList(api: self,
-                            data: data)
+            CountryListForContinent(api: self,
+                                    data: data)
         }
     }
 }
@@ -388,40 +375,53 @@ extension Countries {
     }
 }
 
-extension CountryListForContinent {
-    typealias Data = CountryListForContinentQuery.Data
+extension FullCountryList {
+    typealias Data = FullCountryListQuery.Data
 
     init(api: Countries,
          data: Data) {
         self.init(api: api,
-                  name: GraphQL(data.continent?.name),
-                  countries: GraphQL(data.continent?.countries?.map { $0?.fragments.countryCellCountry }))
+                  countries: GraphQL(data.countries?.map { $0?.fragments.countryCellCountry }))
     }
 }
 
 extension Countries {
-    func countryListForContinent(code: String?) -> some View {
+    func fullCountryList() -> some View {
         return QueryRenderer(client: client,
-                             query: CountryListForContinentQuery(code: code)) { data in
+                             query: FullCountryListQuery()) { data in
 
-            CountryListForContinent(api: self,
-                                    data: data)
+            FullCountryList(api: self,
+                            data: data)
         }
     }
 }
 
-extension CountryCellCountry: Fragment {
-    typealias UnderlyingType = Countries.Country
+extension FullLanguageList {
+    typealias Data = FullLanguageListQuery.Data
+
+    init(data: Data) {
+        self.init(languages: GraphQL(data.languages?.map { $0?.fragments.languageCellLanguage }))
+    }
 }
 
-extension CountryCell {
-    typealias Country = CountryCellCountry
+extension Countries {
+    func fullLanguageList() -> some View {
+        return QueryRenderer(client: client,
+                             query: FullLanguageListQuery()) { data in
 
-    init(api: Countries,
-         country: Country) {
-        self.init(api: api,
-                  code: GraphQL(country.code),
-                  emoji: GraphQL(country.emoji),
-                  name: GraphQL(country.name))
+            FullLanguageList(data: data)
+        }
+    }
+}
+
+extension LanguageCellLanguage: Fragment {
+    typealias UnderlyingType = Countries.Language
+}
+
+extension LanguageCell {
+    typealias Language = LanguageCellLanguage
+
+    init(language: Language) {
+        self.init(name: GraphQL(language.name))
     }
 }
