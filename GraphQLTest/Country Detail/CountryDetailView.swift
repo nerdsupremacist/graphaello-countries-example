@@ -35,7 +35,7 @@ struct CountryDetailView: View {
             
             languages.compactMap { languages in
                 !languages.isEmpty ? Section(header: Text("Languages")) {
-                    ForEach(languages, id: \.code) { language in
+                    ForEach(languages, id: \.name) { language in
                         LanguageCell(language: language)
                     }
                 } : nil

@@ -289,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EAA8462237234B800B00277 /* AppDelegate.swift in Sources */,
+				7DF45F275ACEC6772199B70A /* Graphaello.swift in Sources */,
 				0E2A94F12389EA4200D2940B /* API.swift in Sources */,
 				0E57586B23906E03005834EF /* CountryList.swift in Sources */,
 				0E2A951D238A0A6200D2940B /* LanguageCell.swift in Sources */,
@@ -304,7 +305,6 @@
 				0E68B1E6238F52CC00474D36 /* CountryDetailBasicInfoView.swift in Sources */,
 				0E2A95092389FAA800D2940B /* ContentView.swift in Sources */,
 				0E4A1EE7239E96A800EA2CF8 /* Array+compacted.swift in Sources */,
-				7DF45F275ACEC6772199B70A /* Graphaello.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
