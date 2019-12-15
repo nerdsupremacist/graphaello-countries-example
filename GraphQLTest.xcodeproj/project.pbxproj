@@ -30,6 +30,7 @@
 		0EAA846B237234BB00B00277 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA846A237234BB00B00277 /* Preview Assets.xcassets */; };
 		0EAA846E237234BB00B00277 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EAA846C237234BB00B00277 /* LaunchScreen.storyboard */; };
 		7DF45F275ACEC6772199B70A /* Graphaello.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C50B3C8FC7A9116DE8456D /* Graphaello.swift */; };
+		EDEF0A05E280CB1B0DEBFD66 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 0E2A94EA2389E89600D2940B /* Apollo */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 				0E2A94EF2389E89600D2940B /* ApolloWebSocket in Frameworks */,
 				0E2A94EB2389E89600D2940B /* Apollo in Frameworks */,
 				0E2A94ED2389E89600D2940B /* ApolloSQLite in Frameworks */,
+				EDEF0A05E280CB1B0DEBFD66 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +180,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EAA8472237234BB00B00277 /* Build configuration list for PBXNativeTarget "GraphQLTest" */;
 			buildPhases = (
-				0E3613C823A6D957007A4347 /* Graphaello */,
+				8EEFD79D772805E8C12AD981 /* Graphaello */,
 				0EAA845A237234B800B00277 /* Sources */,
 				0EAA845B237234B800B00277 /* Frameworks */,
 				0EAA845C237234B800B00277 /* Resources */,
@@ -192,6 +194,7 @@
 				0E2A94EA2389E89600D2940B /* Apollo */,
 				0E2A94EC2389E89600D2940B /* ApolloSQLite */,
 				0E2A94EE2389E89600D2940B /* ApolloWebSocket */,
+				0E2A94EA2389E89600D2940B /* Apollo */,
 			);
 			productName = GraphQLTest;
 			productReference = 0EAA845E237234B800B00277 /* GraphQLTest.app */;
@@ -248,23 +251,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E3613C823A6D957007A4347 /* Graphaello */ = {
+		8EEFD79D772805E8C12AD981 /* Graphaello */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 			);
 			name = Graphaello;
-			outputFileListPaths = (
-			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "graphaello codegen --project $PROJECT_FILE_PATH --apollo derivedData\n";
+			shellScript = "if ! type \"graphaello\" > /dev/null; then\n  echo \"warning: graphaello is not installed. Your project won't be updated automatically\"\n  exit 0\nfi\ngraphaello codegen --project $PROJECT_FILE_PATH --apollo derivedData\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
