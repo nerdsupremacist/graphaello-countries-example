@@ -178,6 +178,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EAA8472237234BB00B00277 /* Build configuration list for PBXNativeTarget "GraphQLTest" */;
 			buildPhases = (
+				0E3613C823A6D957007A4347 /* Graphaello */,
 				0EAA845A237234B800B00277 /* Sources */,
 				0EAA845B237234B800B00277 /* Frameworks */,
 				0EAA845C237234B800B00277 /* Resources */,
@@ -245,6 +246,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E3613C823A6D957007A4347 /* Graphaello */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Graphaello;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "graphaello codegen --project $PROJECT_FILE_PATH --apollo derivedData\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0EAA845A237234B800B00277 /* Sources */ = {
