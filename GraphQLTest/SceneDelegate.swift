@@ -22,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         let client = ApolloClient(url: URL(string: "https://countries.trevorblades.com/")!)
-        let contentView = ContentView(api: Countries(client: client))
+        let api = Countries(client: client)
+        let contentView = ContentView(api: api)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
