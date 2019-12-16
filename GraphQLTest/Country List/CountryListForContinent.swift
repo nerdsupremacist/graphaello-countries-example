@@ -21,15 +21,6 @@ struct CountryListForContinent: View {
         return name ?? "Countries"
     }
     
-    var other: String {
-        get {
-            return "Hello World"
-        }
-        set {
-            fatalError()
-        }
-    }
-    
     var body: some View {
         countries
             .compactMap { CountryList(api: api, countries: $0) }
