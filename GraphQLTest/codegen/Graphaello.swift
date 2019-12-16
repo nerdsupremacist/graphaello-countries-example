@@ -186,6 +186,14 @@ struct Countries {
 
         static var fragment: GraphQLFragmentPath<Language> { .init() }
     }
+
+    enum CacheControlScope: String {
+        case `public` = "PUBLIC"
+
+        case `private` = "PRIVATE"
+
+        static var fragment: GraphQLFragmentPath<CacheControlScope> { .init() }
+    }
 }
 
 extension GraphQLFragmentPath where UnderlyingType == Countries.Continent {
@@ -263,6 +271,10 @@ extension GraphQLFragmentPath where UnderlyingType == Countries.Language? {
 
     var rtl: GraphQLPath<Int?> { .init() }
 }
+
+extension GraphQLFragmentPath where UnderlyingType == Countries.CacheControlScope {}
+
+extension GraphQLFragmentPath where UnderlyingType == Countries.CacheControlScope? {}
 
 // MARK: - ContinentCell
 
