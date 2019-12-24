@@ -11,7 +11,7 @@ import SwiftUI
 struct CountryDetailView: View {
     let api: Countries
     
-    @GraphQL(Countries.country.fragment)
+    @GraphQL(Countries.country._fragment)
     var basicInfo: CountryDetailBasicInfoView.Country?
     
     @GraphQL(Countries.country.name)
