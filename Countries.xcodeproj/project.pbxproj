@@ -48,7 +48,7 @@
 		0E57586A23906E03005834EF /* CountryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryList.swift; sourceTree = "<group>"; };
 		0E68B1E2238F473000474D36 /* CountryListForContinent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListForContinent.swift; sourceTree = "<group>"; };
 		0E68B1E5238F52CC00474D36 /* CountryDetailBasicInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailBasicInfoView.swift; sourceTree = "<group>"; };
-		0EAA845E237234B800B00277 /* GraphQLTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphQLTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EAA845E237234B800B00277 /* Countries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Countries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EAA8461237234B800B00277 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EAA8463237234B800B00277 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0EAA8467237234BB00B00277 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		0EAA8455237234B800B00277 = {
 			isa = PBXGroup;
 			children = (
-				0EAA8460237234B800B00277 /* GraphQLTest */,
+				0EAA8460237234B800B00277 /* Countries */,
 				0EAA845F237234B800B00277 /* Products */,
 				CF956BAEE41B2D968460AAE9 /* Frameworks */,
 			);
@@ -132,12 +132,12 @@
 		0EAA845F237234B800B00277 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0EAA845E237234B800B00277 /* GraphQLTest.app */,
+				0EAA845E237234B800B00277 /* Countries.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0EAA8460237234B800B00277 /* GraphQLTest */ = {
+		0EAA8460237234B800B00277 /* Countries */ = {
 			isa = PBXGroup;
 			children = (
 				0E2A94E22389DDF000D2940B /* Countries.graphql.json */,
@@ -155,7 +155,7 @@
 				0E68B1E4238F4ED600474D36 /* codegen */,
 				0EAA8469237234BB00B00277 /* Preview Content */,
 			);
-			path = GraphQLTest;
+			path = Countries;
 			sourceTree = "<group>";
 		};
 		0EAA8469237234BB00B00277 /* Preview Content */ = {
@@ -176,9 +176,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0EAA845D237234B800B00277 /* GraphQLTest */ = {
+		0EAA845D237234B800B00277 /* Countries */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0EAA8472237234BB00B00277 /* Build configuration list for PBXNativeTarget "GraphQLTest" */;
+			buildConfigurationList = 0EAA8472237234BB00B00277 /* Build configuration list for PBXNativeTarget "Countries" */;
 			buildPhases = (
 				8EEFD79D772805E8C12AD981 /* Graphaello */,
 				0EAA845A237234B800B00277 /* Sources */,
@@ -189,7 +189,7 @@
 			);
 			dependencies = (
 			);
-			name = GraphQLTest;
+			name = Countries;
 			packageProductDependencies = (
 				0E2A94EA2389E89600D2940B /* Apollo */,
 				0E2A94EC2389E89600D2940B /* ApolloSQLite */,
@@ -197,7 +197,7 @@
 				0E2A94EA2389E89600D2940B /* Apollo */,
 			);
 			productName = GraphQLTest;
-			productReference = 0EAA845E237234B800B00277 /* GraphQLTest.app */;
+			productReference = 0EAA845E237234B800B00277 /* Countries.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -215,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0EAA8459237234B800B00277 /* Build configuration list for PBXProject "GraphQLTest" */;
+			buildConfigurationList = 0EAA8459237234B800B00277 /* Build configuration list for PBXProject "Countries" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -231,7 +231,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0EAA845D237234B800B00277 /* GraphQLTest */,
+				0EAA845D237234B800B00277 /* Countries */,
 			);
 		};
 /* End PBXProject section */
@@ -424,15 +424,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"GraphQLTest/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Countries/Preview Content\"";
 				DEVELOPMENT_TEAM = KJPP698PR3;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = GraphQLTest/Info.plist;
+				INFOPLIST_FILE = Countries/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.quintero.GraphQLTest;
+				PRODUCT_BUNDLE_IDENTIFIER = io.quintero.countries;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -444,15 +444,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"GraphQLTest/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Countries/Preview Content\"";
 				DEVELOPMENT_TEAM = KJPP698PR3;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = GraphQLTest/Info.plist;
+				INFOPLIST_FILE = Countries/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.quintero.GraphQLTest;
+				PRODUCT_BUNDLE_IDENTIFIER = io.quintero.countries;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -462,7 +462,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0EAA8459237234B800B00277 /* Build configuration list for PBXProject "GraphQLTest" */ = {
+		0EAA8459237234B800B00277 /* Build configuration list for PBXProject "Countries" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0EAA8470237234BB00B00277 /* Debug */,
@@ -471,7 +471,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0EAA8472237234BB00B00277 /* Build configuration list for PBXNativeTarget "GraphQLTest" */ = {
+		0EAA8472237234BB00B00277 /* Build configuration list for PBXNativeTarget "Countries" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0EAA8473237234BB00B00277 /* Debug */,
