@@ -1,7 +1,7 @@
-# Music Example App
+# Countries Example App
 
-This is an App showcasing how to use [Graphaello](https://github.com/nerdsupremacist/graphaello) to it's limits.
-It's using [GraphBrains](https://github.com/exogen/graphbrainz)
+This is a Hello World example on how to use [Graphaello](https://github.com/nerdsupremacist/graphaello) in a Swift UI Project.
+It's using the [Countries API](https://countries.trevorblades.com)
 
 ## How does it look?
 
